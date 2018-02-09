@@ -1,0 +1,47 @@
+<header>
+	<div layout="column" layout-align="center center" layout-gt-xs="column" layout-align-gt-xs="center start" class="menu-area">
+		<div>
+			<img alt="Logo" ng-src="app/assets/img/logo-vivadecora.png" id="Logo">
+		</div>
+		<div>
+			<nav>
+		        <md-button hide-gt-xs class="md-icon-button" ng-click="$mdSidenav('nav').toggle()">
+		            <md-icon>menu</md-icon>
+		        </md-button>
+			    <md-list hide-xs layout="column" layout-align="center start" layout-gt-sm="row" layout-align="center center">
+		    	    <md-list-item>
+						<md-button ui-sref="app">Filmes não curados</md-button>
+		    	    </md-list-item>
+		    	    <md-list-item>
+						<md-button ui-sref="liked">Filmes curtidos</md-button>
+		    	    </md-list-item>
+		    	    <md-list-item>
+						<md-button ui-sref="not-liked">Filmes não curtidos</md-button>
+		    	    </md-list-item>
+			    </md-list>
+			</nav>
+		</div>
+	</div>
+</header>
+<md-sidenav class="md-sidenav-left nav" md-component-id="nav" md-whiteframe="12">
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <md-button class="md-icon-button" ng-click="$mdSidenav('nav').toggle()">
+                <md-icon>menu</md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <nav>
+    	<md-list>
+    	    <md-list-item>
+				<md-button ui-sref="app">Filmes não curados</md-button>
+    	    </md-list-item>
+    	    <md-list-item>
+				<md-button ui-sref="liked">Filmes curtidos</md-button>
+    	    </md-list-item>
+    	    <md-list-item>
+				<md-button ui-sref="not-liked">Filmes não curtidos</md-button>
+    	    </md-list-item>
+    	</md-list>
+    </nav>
+</md-sidenav>

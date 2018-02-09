@@ -11,10 +11,12 @@ define([
 ) {
     amd.controller('AppController', AppController);
 
-    AppController.$inject = ['$rootScope', '$scope', '$state'];
+    AppController.$inject = ['$rootScope', '$scope', '$state', '$mdSidenav'];
 
-    function AppController ($rootScope, $scope, $state) {
+    function AppController ($rootScope, $scope, $state, $mdSidenav) {
         var self = this;
+
+        $rootScope.$mdSidenav = $mdSidenav;
     }
 
     return AppController;

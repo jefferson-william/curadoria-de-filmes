@@ -6,6 +6,79 @@
 @import 'icon';
 @import 'animate.scss';
 
-body {
-    @include linear-gradient(#ff1c1c, rgba(#ff5656, .6));
+#Body {
+    @include linear-gradient(rgba(#ff1c1c, .6), rgba(#ff5656, .6));
+}
+#Main {
+    padding: 16px;
+}
+nav {
+    .md-button {
+        display: block;
+        width: 100%;
+        min-height: auto;
+        padding: 8px 16px;
+        margin: 0;
+        text-align: left;
+        color: #fff;
+    }
+    md-list-item {
+        &.md-no-proxy {
+            padding: 0;
+            margin: 0;
+            .md-secondary-container {
+                display: none;
+            }
+        }
+    }
+}
+header {
+    img {
+        max-width: 150px;
+        max-height: 64px;
+        margin-top: 16px;
+    }
+    nav {
+        position: absolute;
+        top: 16px;
+        left: 16px;
+        md-icon {
+            color: #fff;
+        }
+        .md-button {
+            display: block;
+            min-height: auto;
+        }
+    }
+    .menu-area {
+        > div {
+            margin: 0 auto;
+        }
+    }
+}
+.md-sidenav-left {
+    &.nav {
+        md-list-item {
+            display: block;
+            min-height: auto;
+            &::before {
+                display: none;
+            }
+        }
+        .md-button {
+            color: palette(Black, text);
+        }
+    }
+}
+@media (min-width: $layout-breakpoint-xs) {
+    header {
+        img {
+            padding: 16px 0 42px;
+        }
+        nav {
+            position: static;
+            top: unset;
+            left: unset;
+        }
+    }
 }
