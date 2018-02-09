@@ -1,0 +1,38 @@
+{
+  "version": "0.0.0",
+  "name": "acordofacil",
+  "appPath": "src/main/webapp/",
+  "testPath": "src/test/javascript/spec",
+  "dependencies": {
+    "components-modernizr": "3.5.0",
+    "require-css": "^0.1.10",
+    "requirejs": "^2.3.3",
+    "roboto-fontface": "^0.7.0",
+    "material-design-icons": "^3.0.1",
+    "google-material-color": "^1.3.1",
+    "angular-material-sass-files": "^1.1.3",
+    "animate-sass": "^0.6.6",
+    "moment": "2.17.1",
+    "angular-material": "https://github.com/jefferson-william/bower-material.git#v1.1.5-master-d73581",
+    "angularAMD": "https://github.com/jefferson-william/angularAMD.git#0.2.4",
+    "angular-ui-router": "0.4.2",
+    "angular-sanitize": "1.6.7",
+    "angular-resource": "1.6.7",
+    "angular-cookies": "1.6.7",
+    "angular-animate": "1.6.7",
+    "angular-aria": "1.6.7",
+    "ngstorage": "0.3.10",
+    "angular": "1.6.7"
+  },
+  "resolutions": {
+    "components-modernizr": "3.5.0",
+    "moment": "2.17.1",
+    "angular-resource": "1.6.7",
+    "angular-sanitize": "1.6.7",
+    "angular-material": "v1.1.5-master-d73581",
+    "angular-cookies": "1.6.7",
+    "angular-animate": "1.6.7",
+    "angular-aria": "1.6.7",
+    "angular": "1.6.7"
+  }
+}

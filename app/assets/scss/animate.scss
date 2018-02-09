@@ -1,0 +1,97 @@
+$base-duration          : 0.3s !default;
+
+$use-fadeIn           :   true !default;
+$use-fadeOut         :   true !default;
+$use-fadeInUp           :   true !default;
+$use-fadeInDown         :   true !default;
+$use-fadeInLeft         :   true !default;
+$use-fadeInRight        :   true !default;
+$use-shake              :   true !default;
+$use-zoomInDown         :   true !default;
+
+@import '../../../bower_components/animate-sass/helpers/mixins',
+    '../../../bower_components/animate-sass/helpers/settings',
+    '../../../bower_components/animate-sass/helpers/base';
+
+@import '../../../bower_components/animate-sass/animations/attention-seekers/bounce',
+    '../../../bower_components/animate-sass/animations/attention-seekers/flash',
+    '../../../bower_components/animate-sass/animations/attention-seekers/pulse',
+    '../../../bower_components/animate-sass/animations/attention-seekers/shake',
+    '../../../bower_components/animate-sass/animations/attention-seekers/swing',
+    '../../../bower_components/animate-sass/animations/attention-seekers/wiggle',
+    '../../../bower_components/animate-sass/animations/attention-seekers/wobble',
+    '../../../bower_components/animate-sass/animations/attention-seekers/tada';
+
+@import '../../../bower_components/animate-sass/animations/bounce-enter/bounceIn',
+    '../../../bower_components/animate-sass/animations/bounce-enter/bounceInDown',
+    '../../../bower_components/animate-sass/animations/bounce-enter/bounceInLeft',
+    '../../../bower_components/animate-sass/animations/bounce-enter/bounceInRight',
+    '../../../bower_components/animate-sass/animations/bounce-enter/bounceInUp',
+    '../../../bower_components/animate-sass/animations/bounce-exit/bounceOut',
+    '../../../bower_components/animate-sass/animations/bounce-exit/bounceOutDown',
+    '../../../bower_components/animate-sass/animations/bounce-exit/bounceOutLeft',
+    '../../../bower_components/animate-sass/animations/bounce-exit/bounceOutRight',
+    '../../../bower_components/animate-sass/animations/bounce-exit/bounceOutUp';
+
+@import '../../../bower_components/animate-sass/animations/fade-enter/fadeIn',
+    '../../../bower_components/animate-sass/animations/fade-enter/fadeInDown',
+    '../../../bower_components/animate-sass/animations/fade-enter/fadeInDownBig',
+    '../../../bower_components/animate-sass/animations/fade-enter/fadeInLeft',
+    '../../../bower_components/animate-sass/animations/fade-enter/fadeInLeftBig',
+    '../../../bower_components/animate-sass/animations/fade-enter/fadeInRight',
+    '../../../bower_components/animate-sass/animations/fade-enter/fadeInRightBig',
+    '../../../bower_components/animate-sass/animations/fade-enter/fadeInUp',
+    '../../../bower_components/animate-sass/animations/fade-enter/fadeInUpBig',
+    '../../../bower_components/animate-sass/animations/fade-exit/fadeOut',
+    '../../../bower_components/animate-sass/animations/fade-exit/fadeOutDown',
+    '../../../bower_components/animate-sass/animations/fade-exit/fadeOutDownBig',
+    '../../../bower_components/animate-sass/animations/fade-exit/fadeOutLeft',
+    '../../../bower_components/animate-sass/animations/fade-exit/fadeOutLeftBig',
+    '../../../bower_components/animate-sass/animations/fade-exit/fadeOutRight',
+    '../../../bower_components/animate-sass/animations/fade-exit/fadeOutRightBig',
+    '../../../bower_components/animate-sass/animations/fade-exit/fadeOutUp',
+    '../../../bower_components/animate-sass/animations/fade-exit/fadeOutUpBig';
+
+@import '../../../bower_components/animate-sass/animations/flippers/flip',
+    '../../../bower_components/animate-sass/animations/flippers/flipInX',
+    '../../../bower_components/animate-sass/animations/flippers/flipInY',
+    '../../../bower_components/animate-sass/animations/flippers/flipOutX',
+    '../../../bower_components/animate-sass/animations/flippers/flipOutY';
+
+@import '../../../bower_components/animate-sass/animations/lightspeed/lightSpeedIn',
+    '../../../bower_components/animate-sass/animations/lightspeed/lightSpeedOut';
+
+@import '../../../bower_components/animate-sass/animations/rotate-enter/rotateIn',
+    '../../../bower_components/animate-sass/animations/rotate-enter/rotateInDownLeft',
+    '../../../bower_components/animate-sass/animations/rotate-enter/rotateInDownRight',
+    '../../../bower_components/animate-sass/animations/rotate-enter/rotateInUpLeft',
+    '../../../bower_components/animate-sass/animations/rotate-enter/rotateInUpRight',
+    '../../../bower_components/animate-sass/animations/rotate-exit/rotateOut',
+    '../../../bower_components/animate-sass/animations/rotate-exit/rotateOutDownLeft',
+    '../../../bower_components/animate-sass/animations/rotate-exit/rotateOutDownRight',
+    '../../../bower_components/animate-sass/animations/rotate-exit/rotateOutUpLeft',
+    '../../../bower_components/animate-sass/animations/rotate-exit/rotateOutUpRight';
+
+@import '../../../bower_components/animate-sass/animations/slide-enter/slideInDown',
+    '../../../bower_components/animate-sass/animations/slide-enter/slideInLeft',
+    '../../../bower_components/animate-sass/animations/slide-enter/slideInRight',
+    '../../../bower_components/animate-sass/animations/slide-enter/slideInUp',
+    '../../../bower_components/animate-sass/animations/slide-exit/slideOutDown',
+    '../../../bower_components/animate-sass/animations/slide-exit/slideOutLeft',
+    '../../../bower_components/animate-sass/animations/slide-exit/slideOutRight',
+    '../../../bower_components/animate-sass/animations/slide-exit/slideOutUp';
+
+@import '../../../bower_components/animate-sass/animations/special/hinge',
+    '../../../bower_components/animate-sass/animations/special/rollIn',
+    '../../../bower_components/animate-sass/animations/special/rollOut';
+
+@import '../../../bower_components/animate-sass/animations/zoom-enter/zoomIn',
+    '../../../bower_components/animate-sass/animations/zoom-enter/zoomInDown',
+    '../../../bower_components/animate-sass/animations/zoom-enter/zoomInLeft',
+    '../../../bower_components/animate-sass/animations/zoom-enter/zoomInRight',
+    '../../../bower_components/animate-sass/animations/zoom-enter/zoomInUp',
+    '../../../bower_components/animate-sass/animations/zoom-exit/zoomOut',
+    '../../../bower_components/animate-sass/animations/zoom-exit/zoomOutDown',
+    '../../../bower_components/animate-sass/animations/zoom-exit/zoomOutLeft',
+    '../../../bower_components/animate-sass/animations/zoom-exit/zoomOutRight',
+    '../../../bower_components/animate-sass/animations/zoom-exit/zoomOutUp';
