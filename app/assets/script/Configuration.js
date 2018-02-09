@@ -5,8 +5,8 @@ requirejs.config({
     , waitSeconds: 0
     , paths: {
           'require': 'https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.min'
-        , 'css-builder': '/bower_components/require-css/css-builder'
-        , 'normalize': '/bower_components/require-css/normalize'
+        , 'css-builder': 'bower_components/require-css/css-builder'
+        , 'normalize': 'bower_components/require-css/normalize'
         , 'modernizr': 'https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min'
         , 'css': 'https://cdnjs.cloudflare.com/ajax/libs/require-css/0.1.10/css.min'
         , 'moment': 'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min'
