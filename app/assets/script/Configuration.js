@@ -20,7 +20,7 @@ requirejs.config({
         , 'angular-ui-router': 'bower_components/angular-ui-router/release/angular-ui-router'
         , 'ngStorage': 'bower_components/ngstorage/ngStorage'
         , 'angularMaterial': 'bower_components/angular-material/angular-material'
-        , 'angularMaterialCss': 'bower_components/angular-material/angular-material'
+        , 'angularMaterialCss': 'app/assets/style/material'
         , 'app.module': 'app/module/app.module'
         , 'app-css': 'app/assets/style/app'
         , 'app.state': 'app/state/app.state'
