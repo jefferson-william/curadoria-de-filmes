@@ -19,7 +19,7 @@ define([
             , 'ngSanitize'
             , 'ngCookies'
             , 'ngAnimate'
-            , 'ngStorage'
+            , 'angular-storage'
             , 'ngAria'
             , 'ui.router'
         ]);
