@@ -8,17 +8,7 @@
 		        <md-button hide-gt-xs class="md-icon-button" ng-click="$mdSidenav('nav').toggle()">
 		            <md-icon>menu</md-icon>
 		        </md-button>
-			    <md-list hide-xs layout="column" layout-align="center start" layout-gt-sm="row" layout-align="center center">
-		    	    <md-list-item>
-						<md-button ui-sref="app">Filmes não curados</md-button>
-		    	    </md-list-item>
-		    	    <md-list-item>
-						<md-button ui-sref="liked">Filmes curtidos</md-button>
-		    	    </md-list-item>
-		    	    <md-list-item>
-						<md-button ui-sref="not-liked">Filmes não curtidos</md-button>
-		    	    </md-list-item>
-			    </md-list>
+		        <app-menu type="header"></app-menu>
 			</nav>
 		</div>
 	</div>
@@ -32,16 +22,6 @@
         </div>
     </md-toolbar>
     <nav>
-    	<md-list>
-    	    <md-list-item>
-				<md-button ui-sref="app">Filmes não curados</md-button>
-    	    </md-list-item>
-    	    <md-list-item>
-				<md-button ui-sref="liked">Filmes curtidos</md-button>
-    	    </md-list-item>
-    	    <md-list-item>
-				<md-button ui-sref="not-liked">Filmes não curtidos</md-button>
-    	    </md-list-item>
-    	</md-list>
+    	<app-menu type="sidenav"></app-menu>
     </nav>
 </md-sidenav>

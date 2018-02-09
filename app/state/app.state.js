@@ -55,6 +55,7 @@ define([
                             , 'header.controller'
                             , 'main.controller'
                             , 'footer.controller'
+                            , 'menu.directive'
                         ], function (amd) {
                             amd.processQueue();
 

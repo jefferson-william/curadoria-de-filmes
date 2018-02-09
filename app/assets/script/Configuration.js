@@ -30,6 +30,7 @@ requirejs.config({
         , 'footer.controller': 'app/controller/footer.controller'
         , 'tmdb.resource': 'app/resource/tmdb.resource'
         , 'tmdb.constant': 'app/constant/tmdb.constant'
+        , 'menu.directive': 'app/directive/menu.directive'
     }
     , shim: {
           'modernizr': { exports: 'Modernizr' }
