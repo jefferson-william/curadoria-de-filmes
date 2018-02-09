@@ -11,7 +11,7 @@ requirejs.config({
         , 'css': 'https://cdnjs.cloudflare.com/ajax/libs/require-css/0.1.10/css.min'
         , 'moment': 'https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min'
         , 'angular': 'https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min'
-        , 'angularAMD': 'http://cdn.jsdelivr.net/angular.amd/0.1.0/angularAMD.min'
+        , 'angularAMD': 'https://cdn.jsdelivr.net/angular.amd/0.1.0/angularAMD.min'
         , 'angular-animate': 'https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-animate.min'
         , 'angular-aria': 'https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-aria.min'
         , 'angular-cookies': 'https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-cookies.min'
