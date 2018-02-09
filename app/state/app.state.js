@@ -23,7 +23,7 @@ define([
                   url: '/'
                 , views: {
                     '': {
-                          templateUrl: '/app/partial/layout/app.html'
+                          templateUrl: 'app/partial/layout/app.html'
                         , controller: 'AppController'
                         , controllerAs: 'App'
                     }
