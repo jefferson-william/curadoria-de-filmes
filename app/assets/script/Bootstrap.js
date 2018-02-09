@@ -7,7 +7,6 @@ requirejs([
     , 'moment'
     , 'modernizr'
     , 'app.state'
-    , 'app.controller'
 ], function (
       ng
     , amd

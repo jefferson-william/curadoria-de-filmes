@@ -1,0 +1,9 @@
+@import 'variable';
+@import '../../../bower_components/angular-material-sass-files/variables.scss';
+@import '../../../bower_components/google-material-color/dist/palette.scss';
+
+@mixin linear-gradient($direction, $color-stops...) {
+    background: nth(nth($color-stops, 1), 1);
+    background: -webkit-linear-gradient(legacy-direction($direction), $color-stops);
+    background: linear-gradient($direction, $color-stops);
+}

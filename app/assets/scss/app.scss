@@ -1,7 +1,11 @@
 @import 'variable';
+@import 'mixin';
 @import '../../../bower_components/angular-material-sass-files/variables.scss';
 @import '../../../bower_components/google-material-color/dist/palette.scss';
 @import 'font';
 @import 'icon';
-
 @import 'animate.scss';
+
+body {
+    @include linear-gradient(#ff1c1c, rgba(#ff5656, .6));
+}

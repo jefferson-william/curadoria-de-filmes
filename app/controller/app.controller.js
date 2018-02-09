@@ -9,11 +9,11 @@ define([
     , amd
     , app
 ) {
-    ng.module('app').controller('AppController', AppController);
+    amd.controller('AppController', AppController);
 
-    AppController.$inject = ['$rootScope', '$scope', '$timeout', '$state', '$mdToast'];
+    AppController.$inject = ['$rootScope', '$scope', '$state'];
 
-    function AppController ($rootScope, $scope, $timeout, $state, $mdToast) {
+    function AppController ($rootScope, $scope, $state) {
         var self = this;
     }
 

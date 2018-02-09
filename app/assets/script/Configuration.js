@@ -25,6 +25,9 @@ requirejs.config({
         , 'app-css': 'app/assets/style/app'
         , 'app.state': 'app/state/app.state'
         , 'app.controller': 'app/controller/app.controller'
+        , 'header.controller': 'app/controller/header.controller'
+        , 'main.controller': 'app/controller/main.controller'
+        , 'footer.controller': 'app/controller/footer.controller'
     }
     , shim: {
           'modernizr': { exports: 'Modernizr' }
@@ -103,6 +106,21 @@ requirejs.config({
             deps: [
                   'app.module'
                 , 'app.state'
+            ]
+        }
+        , 'header.controller': {
+            deps: [
+                'app.module'
+            ]
+        }
+        , 'main.controller': {
+            deps: [
+                'app.module'
+            ]
+        }
+        , 'footer.controller': {
+            deps: [
+              'app.module'
             ]
         }
     }
