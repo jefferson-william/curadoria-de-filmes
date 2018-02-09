@@ -28,6 +28,8 @@ requirejs.config({
         , 'header.controller': 'app/controller/header.controller'
         , 'main.controller': 'app/controller/main.controller'
         , 'footer.controller': 'app/controller/footer.controller'
+        , 'tmdb.resource': 'app/resource/tmdb.resource'
+        , 'tmdb.constant': 'app/constant/tmdb.constant'
     }
     , shim: {
           'modernizr': { exports: 'Modernizr' }
@@ -108,19 +110,14 @@ requirejs.config({
                 , 'app.state'
             ]
         }
-        , 'header.controller': {
-            deps: [
-                'app.module'
-            ]
-        }
         , 'main.controller': {
             deps: [
-                'app.module'
+              'tmdb.resource'
             ]
         }
-        , 'footer.controller': {
+        , 'tmdb.resource': {
             deps: [
-              'app.module'
+              'tmdb.constant'
             ]
         }
     }
