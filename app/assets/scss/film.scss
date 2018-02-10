@@ -6,7 +6,7 @@
 film {
     display: block;
     height: 350px;
-    padding: 32px 0 16px;
+    padding: 8px 0 16px;
     a {
         color: palette(Red, 400);
         text-decoration: underline;
@@ -89,42 +89,55 @@ film {
 @media (min-width: $layout-breakpoint-xs) {
     film {
         display: inline-block;
-        width: 294px;
         md-card {
             border-radius: 4px;
         }
         .synopsis {
-            padding-left: 16px;
+            padding-left: 8px;
             white-space: nowrap;
         }
     }
 }
 @media (min-width: $layout-breakpoint-sm) {
     film {
-        width: 700px;
-        height: 460px;
-        md-card-actions {
-            padding: 32px 0;
-            .md-button {
-                width: auto;
-                padding: 4px 32px 0;
-                border-radius: 32px;
+        width: 294px;
+        &:not(.max-size-sm) {
+            width: 700px;
+            height: 460px;
+            md-card-actions {
+                padding: 16px 0 32px;
+                .md-button {
+                    width: auto;
+                    padding: 4px 32px 0;
+                    border-radius: 32px;
+                }
+            }
+            .md-headline {
+                font-weight: bold;
+            }
+            .vote-count {
+                font-size: 14px;
+            }
+            .md-headline {
+                margin: -16px 0 8px;
+            }
+            .md-subhead {
+                margin: 0;
+            }
+            .synopsis {
+                padding-left: 16px;
+            }
+            .layout-padding {
+                padding: 16px;
             }
         }
-        .md-headline {
-            font-weight: bold;
-        }
-        .vote-count {
-            font-size: 14px;
-        }
-        .md-headline {
-            margin: -16px 0 8px;
-        }
-        .md-subhead {
-            margin: 0;
-        }
-        .layout-padding {
-            padding: 16px;
+        &.max-size-sm {
+            .show-gt-sm {
+                display: none;
+            }
+            .show-sm {
+                display: block !important;
+            }
         }
     }
 }

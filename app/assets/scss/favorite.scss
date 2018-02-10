@@ -4,6 +4,7 @@
 @import '../../../bower_components/google-material-color/dist/palette.scss';
 
 favorite {
+    min-width: 143px;
     md-icon {
         color: #fff;
         &.active {

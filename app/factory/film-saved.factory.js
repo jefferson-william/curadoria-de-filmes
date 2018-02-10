@@ -103,15 +103,21 @@ define([
         };
 
         self.Down = function (film) {
-            $localStorage.downFilms.push(film);
+            if (!$localStorage.downFilms.filter(function (f) { return f.id === film.id; }).length) {
+                $localStorage.downFilms.push(film);
+            }
         };
 
         self.Jump = function (film) {
-            $localStorage.jumpedFilms.push(film);
+            if (!$localStorage.jumpedFilms.filter(function (f) { return f.id === film.id; }).length) {
+                $localStorage.jumpedFilms.push(film);
+            }
         };
 
         self.Up = function (film) {
-            $localStorage.upFilms.push(film);
+            if (!$localStorage.upFilms.filter(function (f) { return f.id === film.id; }).length) {
+                $localStorage.upFilms.push(film);
+            }
         };
 
         self.InitSavedFilms();

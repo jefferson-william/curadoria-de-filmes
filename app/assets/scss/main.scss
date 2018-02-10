@@ -3,13 +3,24 @@
 @import '../../../bower_components/angular-material-sass-files/variables.scss';
 @import '../../../bower_components/google-material-color/dist/palette.scss';
 
-#Main {
+main {
+    max-width: 960px;
+    margin: 0 auto;
+}
+.page {
+    &.page-internal {
+        main {
+            padding: 16px;
+        }
+    }
 }
 @media (min-width: $layout-breakpoint-xs) {
-    #Main {
-        text-align: center;
-        film {
-            text-align: left;
+    main {
+        .content {
+            text-align: center;
+            film {
+                text-align: left;
+            }
         }
     }
 }

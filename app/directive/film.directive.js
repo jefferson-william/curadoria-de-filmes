@@ -20,7 +20,9 @@ define([
             , templateUrl: 'app/partial/directive/film.html'
             , controllerAs: 'Film'
             , scope: {
-                data: '='
+                  data: '='
+                , actions: '='
+                , maxSize: '@'
             }
             , controller: ['$scope', 'TMDB', function ($scope, TMDB) {
                 var self = this;
@@ -28,11 +30,14 @@ define([
                 self.TMDB = TMDB;
             }]
             , link: function (scope, element, attrs, controllers, transclude) {
-                var self = this;
+                var self = this
+                    , haveSize = scope.maxSize === undefined || scope.maxSize ? true : false;
 
                 scope.Main = scope.$parent.$parent.Main;
 
                 transclude(scope, function (clone, scope) {
+                    haveSize && element.addClass('max-size-' + scope.maxSize);
+
                     element.append(clone);
                 });
             }

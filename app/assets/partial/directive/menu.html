@@ -1,11 +1,11 @@
-<md-list type="{{ type }}" ng-class="{ 'hide-xs layout-gt-sm-row layout-align-center-start layout-column': type === 'header' }">
+<md-list type="{{ type }}" ng-class="{ 'hide-xs hide-sm layout-gt-sm-row layout-align-center-start layout-column': type === 'header' }">
     <md-list-item>
 		<md-button ui-sref="app">Filmes não curados</md-button>
     </md-list-item>
     <md-list-item>
-		<md-button ui-sref="liked">Filmes curtidos</md-button>
+		<md-button ui-sref="internal.like">Filmes curtidos</md-button>
     </md-list-item>
     <md-list-item>
-		<md-button ui-sref="not-liked">Filmes não curtidos</md-button>
+		<md-button ui-sref="internal.not-like">Filmes não curtidos</md-button>
     </md-list-item>
 </md-list>

@@ -23,7 +23,7 @@
 #Body {
     display: table-cell;
     font-size: 14px;
-    @include linear-gradient(rgba(#ff1c1c, 1), rgba(#ff5656, .6));
+    @include linear-gradient(rgba(#ff1c1c, .6), rgba(#ff5656, .6));
 }
 #App {
     position: absolute;
@@ -54,6 +54,7 @@ nav {
     }
 }
 header {
+    min-height: 66px;
     img {
         display: inline-block;
         max-width: 130px;
@@ -72,9 +73,22 @@ header {
             min-height: auto;
         }
     }
+    app-menu {
+        display: block;
+    }
     .menu-area {
         > div {
             margin: 0 auto;
+        }
+    }
+}
+.page {
+    &.page-internal {
+        &#Body {
+            background: #fff;
+        }
+        header {
+            background-color: palette(Red, 400);
         }
     }
 }
@@ -95,7 +109,7 @@ header {
 .md-headline {
     font-size: 18px;
 }
-@media (min-width: $layout-breakpoint-xs) {
+@media (min-width: $layout-breakpoint-sm) {
     #Body {
         font-size: 16px;
     }

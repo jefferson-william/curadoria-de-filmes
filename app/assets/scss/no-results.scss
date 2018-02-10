@@ -1,0 +1,27 @@
+@import 'variable';
+@import 'mixin';
+@import '../../../bower_components/angular-material-sass-files/variables.scss';
+@import '../../../bower_components/google-material-color/dist/palette.scss';
+
+no-results {
+    display: block;
+    margin-top: 62px;
+    text-align: center;
+    h2 {
+        display: block;
+        padding-bottom: 32px;
+        margin-bottom: 0;
+    }
+    md-icon {
+        width: 152px;
+        height: 152px;
+        min-width: 152px;
+        min-height: 152px;
+        font-size: 152px;
+        color: palette(Red, 400);
+    }
+}
+@media (min-width: $layout-breakpoint-xs) {
+    no-results {
+    }
+}

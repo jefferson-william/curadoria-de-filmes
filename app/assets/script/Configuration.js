@@ -40,6 +40,10 @@ requirejs.config({
         , 'film-saved.factory': 'app/factory/film-saved.factory'
         , 'film-backdrop.factory': 'app/factory/film-backdrop.factory'
         , 'genre-saved.factory': 'app/factory/genre-saved.factory'
+        , 'like.state': 'app/state/like.state'
+        , 'like.controller': 'app/controller/like.controller'
+        , 'no-results.directive': 'app/directive/no-results.directive'
+        , 'no-results-css': 'app/assets/style/no-results'
     }
     , shim: {
           'modernizr': { exports: 'Modernizr' }
@@ -108,7 +112,7 @@ requirejs.config({
                 , 'ngStorage'
                 , 'angularMaterial'
             ]
-        , }
+        }
         , 'app.state': {
             deps: [
                 'app.module'
@@ -155,6 +159,22 @@ requirejs.config({
         , 'film-backdrop.factory': {
             deps: [
                 'tmdb.constant'
+            ]
+        }
+        , 'like.state': {
+            deps: [
+                'app.module'
+            ]
+        }
+        , 'like.controller': {
+            deps: [
+                  'film-saved.factory'
+                , 'no-results.directive'
+            ]
+        }
+        , 'no-results.directive': {
+            deps: [
+                'css!no-results-css'
             ]
         }
     }

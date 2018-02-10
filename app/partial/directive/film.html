@@ -3,14 +3,18 @@
 	<md-card-content layout="column" layout-align="end start">
 		<div>
 			<div layout-padding>
-				<div hide-gt-sm>
-					<h1 class="md-headline">{{ data.title | limitTo:22 }}{{ data.title.length > 22 ? '...' : '' }}</h1>
+				<div show-xs hide-gt-xs>
+					<h1 class="md-headline">{{ data.title | limitTo:18 }}{{ data.title.length > 18 ? '...' : '' }}</h1>
+					<favorite number="{{ data.vote_average }}"></favorite>
+				</div>
+				<div hide-xs show-sm hide-gt-sm>
+					<h1 class="md-headline">{{ data.title | limitTo:18 }}{{ data.title.length > 18 ? '...' : '' }}</h1>
 					<div layout layout-align="space-between center">
 						<favorite number="{{ data.vote_average }}"></favorite>
 						<span class="vote-count">({{ data.vote_count }} avaliações)</span>
 					</div>
 				</div>
-				<div hide-xs hide-sm layout layout-align="space-between center">
+				<div hide-xs hide-sm show-gt-sm layout layout-align="space-between center">
 					<div>
 						<h1 class="md-headline">{{ data.title }}</h1>
 						<p class="md-subhead">
@@ -24,16 +28,16 @@
 						<p class="vote-count">({{ data.vote_count }} avaliações)</p>
 					</div>
 				</div>
-				<div layout layout-align="space-between center">
-					<p class="overview" hide-gt-xs>{{ data.overview | limitTo:25 }}...</p>
-					<p class="overview" hide-xs>{{ data.overview | limitTo:100 }}...</p>
+				<div hide-xs layout layout-align="space-between center">
+					<p class="overview hide-xs show-sm hide-gt-sm">{{ data.overview | limitTo:18 }}...</p>
+					<p class="overview hide-xs hide-sm show-gt-sm">{{ data.overview | limitTo:100 }}...</p>
 					<a ui-sref=".film-detail" class="synopsis">Ver sinopse</a>
 				</div>
 			</div>
 		</div>
 	</md-card-content>
 </md-card>
-<md-card-actions layout layout-align="space-between center">
+<md-card-actions layout layout-align="space-between center" ng-if="actions">
 	<div>
 		<md-button hide-gt-sm class="md-icon-button md-whiteframe-z3 down" ng-click="Main.Down(data)">
 			<md-icon>thumb_down</md-icon>
