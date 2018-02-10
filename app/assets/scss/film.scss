@@ -4,6 +4,8 @@
 @import '../../../bower_components/google-material-color/dist/palette.scss';
 
 film {
+    display: block;
+    height: 350px;
     a {
         color: palette(Red, 400);
     }
@@ -32,7 +34,7 @@ film {
     }
     md-card,
     img {
-        height: 350px;
+        height: 100%;
     }
     md-card,
     .md-headline {
@@ -51,6 +53,8 @@ film {
 }
 @media (min-width: $layout-breakpoint-xs) {
     film {
+        display: inline-block;
+        width: 294px;
         md-card {
             border-radius: 4px;
         }

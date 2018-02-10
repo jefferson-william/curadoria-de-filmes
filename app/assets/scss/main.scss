@@ -1,0 +1,15 @@
+@import 'variable';
+@import 'mixin';
+@import '../../../bower_components/angular-material-sass-files/variables.scss';
+@import '../../../bower_components/google-material-color/dist/palette.scss';
+
+#Main {
+}
+@media (min-width: $layout-breakpoint-xs) {
+    #Main {
+        text-align: center;
+        film {
+            text-align: left;
+        }
+    }
+}

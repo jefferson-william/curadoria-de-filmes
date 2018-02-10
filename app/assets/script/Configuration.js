@@ -5,6 +5,7 @@ requirejs.config({
     , waitSeconds: 0
     , paths: {
           'require': 'bower_components/requirejs/require'
+        , 'normalize-css': 'bower_components/normalize.css/normalize'
         , 'css-builder': 'bower_components/require-css/css-builder'
         , 'normalize': 'bower_components/require-css/normalize'
         , 'modernizr': 'bower_components/components-modernizr/modernizr'
@@ -27,6 +28,7 @@ requirejs.config({
         , 'app.controller': 'app/controller/app.controller'
         , 'header.controller': 'app/controller/header.controller'
         , 'main.controller': 'app/controller/main.controller'
+        , 'main-css': 'app/assets/style/main'
         , 'footer.controller': 'app/controller/footer.controller'
         , 'tmdb.resource': 'app/resource/tmdb.resource'
         , 'tmdb.constant': 'app/constant/tmdb.constant'
@@ -40,7 +42,8 @@ requirejs.config({
           'modernizr': { exports: 'Modernizr' }
         , 'angular': {
             deps: [
-                'moment'
+                  'moment'
+                , 'css!normalize-css'
             ]
             , exports: 'angular'
         }
@@ -119,6 +122,7 @@ requirejs.config({
             deps: [
                 'tmdb.resource'
               , 'film.directive'
+              , 'css!main-css'
             ]
         }
         , 'tmdb.resource': {

@@ -6,18 +6,29 @@
 @import 'icon';
 @import 'animate.scss';
 
+#Html,
 #Body {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+#Html {
+    display: table;
+}
+#Body {
+    display: table-cell;
+    font-size: 14px;
+    @include linear-gradient(rgba(#ff1c1c, 1), rgba(#ff5656, .6));
+}
+#App {
     position: absolute;
     top: 0;
     left: 0;
-    display: table;
     width: 100%;
     height: 100%;
-    font-size: 14px;
-    @include linear-gradient(rgba(#ff1c1c, .6), rgba(#ff5656, .6));
-}
-#Main {
-    padding: 16px;
+    overflow: auto;
 }
 nav {
     .md-button {
@@ -44,12 +55,12 @@ header {
         display: inline-block;
         max-width: 150px;
         max-height: 64px;
-        margin: 16px 0;
+        margin: 16px 0 0;
     }
     nav {
         position: absolute;
-        top: 16px;
-        left: 16px;
+        top: 12px;
+        left: 8px;
         md-icon {
             color: #fff;
         }
@@ -87,7 +98,7 @@ header {
     }
     header {
         img {
-            padding: 16px 0 42px;
+            padding: 16px 0;
         }
         nav {
             position: static;
@@ -96,6 +107,6 @@ header {
         }
     }
     .md-headline {
-        font-size: $headline-font-size-base;
+        font-size: $headline-font-size-base - 6;
     }
 }
