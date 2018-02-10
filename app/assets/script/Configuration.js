@@ -31,6 +31,8 @@ requirejs.config({
         , 'tmdb.resource': 'app/resource/tmdb.resource'
         , 'tmdb.constant': 'app/constant/tmdb.constant'
         , 'menu.directive': 'app/directive/menu.directive'
+        , 'film.directive': 'app/directive/film.directive'
+        , 'film-css': 'app/assets/style/film'
     }
     , shim: {
           'modernizr': { exports: 'Modernizr' }
@@ -97,7 +99,6 @@ requirejs.config({
                 , 'angular-ui-router'
                 , 'ngStorage'
                 , 'angularMaterial'
-                , 'css!app-css'
             ]
         , }
         , 'app.state': {
@@ -109,16 +110,24 @@ requirejs.config({
             deps: [
                   'app.module'
                 , 'app.state'
+                , 'css!app-css'
             ]
         }
         , 'main.controller': {
             deps: [
-              'tmdb.resource'
+                'tmdb.resource'
+              , 'film.directive'
             ]
         }
         , 'tmdb.resource': {
             deps: [
-              'tmdb.constant'
+                'tmdb.constant'
+            ]
+        }
+        , 'film.directive': {
+            deps: [
+                  'tmdb.constant'
+                , 'css!film-css'
             ]
         }
     }

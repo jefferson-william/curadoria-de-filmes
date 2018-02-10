@@ -1,0 +1,58 @@
+@import 'variable';
+@import 'mixin';
+@import '../../../bower_components/angular-material-sass-files/variables.scss';
+@import '../../../bower_components/google-material-color/dist/palette.scss';
+
+film {
+    a {
+        color: palette(Red, 400);
+    }
+    md-card {
+        border-radius: 4px;
+        overflow: hidden;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    img {
+        width: 100%;
+        object-fit: cover;
+    }
+    md-card-content {
+        height: 100%;
+        padding: 0;
+        margin-top: -350px;
+        .layout-padding {
+            padding-top: 32px;
+        }
+        > div {
+            width: 100%;
+            padding: 0;
+            @include linear-gradient(rgba(#000, 0), rgba(#000, 1));
+        }
+    }
+    md-card,
+    img {
+        height: 350px;
+    }
+    md-card,
+    .md-headline {
+        color: #fff;
+    }
+    .md-headline {
+        text-transform: uppercase;
+    }
+    .vote-count {
+        font-size: 12px;
+    }
+}
+@media (min-width: $layout-breakpoint-xs) {
+    film {
+        md-card {
+            border-radius: 4px;
+        }
+        img {
+            width: 294px;
+            height: 350px;
+        }
+    }
+}

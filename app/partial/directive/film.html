@@ -1,0 +1,20 @@
+<md-card>
+	<img alt="Imagem do filme {{ data.title }}" ng-src="{{ Film.TMDB.URL_POSTER_PATH + data.poster_path }}">
+	<md-card-content layout="column" layout-align="end start">
+		<div>
+			<div layout-padding>
+				<span class="md-headline" hide-gt-xs>{{ data.title | limitTo:22 }}{{ data.title.length > 22 ? '...' : '' }}</span>
+				<span class="md-headline" hide-xs>{{ data.title }}</span>
+				<div layout layout-align="space-between center">
+					<film-favorite number="data.vote_average"></film-favorite>
+					<span class="vote-count">({{ data.vote_count }} avaliações)</span>
+				</div>
+				<div layout layout-align="space-between center">
+					<p class="overview" hide-gt-xs>{{ data.overview | limitTo:25 }}...</p>
+					<p class="overview" hide-xs>{{ data.overview | limitTo:100 }}...</p>
+					<a ui-sref=".film-detail" class="synopsis">Ver sinopse</a>
+				</div>
+			</div>
+		</div>
+	</md-card-content>
+</md-card>

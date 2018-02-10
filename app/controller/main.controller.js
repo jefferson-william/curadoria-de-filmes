@@ -22,7 +22,10 @@ define([
             return self.discoverMovie.$promise;
         };
 
+        self.Get();
+
         function GetSuccess (response) {
+            self.data = response
         }
 
         function GetError (response) {

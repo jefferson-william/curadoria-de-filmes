@@ -7,6 +7,13 @@
 @import 'animate.scss';
 
 #Body {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: table;
+    width: 100%;
+    height: 100%;
+    font-size: 14px;
     @include linear-gradient(rgba(#ff1c1c, .6), rgba(#ff5656, .6));
 }
 #Main {
@@ -34,9 +41,10 @@ nav {
 }
 header {
     img {
+        display: inline-block;
         max-width: 150px;
         max-height: 64px;
-        margin-top: 16px;
+        margin: 16px 0;
     }
     nav {
         position: absolute;
@@ -70,7 +78,13 @@ header {
         }
     }
 }
+.md-headline {
+    font-size: 18px;
+}
 @media (min-width: $layout-breakpoint-xs) {
+    #Body {
+        font-size: 16px;
+    }
     header {
         img {
             padding: 16px 0 42px;
@@ -80,5 +94,8 @@ header {
             top: unset;
             left: unset;
         }
+    }
+    .md-headline {
+        font-size: $headline-font-size-base;
     }
 }
