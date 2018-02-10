@@ -1,7 +1,129 @@
 @import 'variable';
+@import 'mixin';
 @import '../../../bower_components/angular-material-sass-files/variables.scss';
 @import '../../../bower_components/google-material-color/dist/palette.scss';
 @import 'font';
 @import 'icon';
-
 @import 'animate.scss';
+
+#Html,
+#Body {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+#Html {
+    display: table;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+#Body {
+    display: table-cell;
+    font-size: 14px;
+    @include linear-gradient(rgba(#ff1c1c, .6), rgba(#ff5656, .6));
+}
+#App {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+nav {
+    .md-button {
+        display: block;
+        width: 100%;
+        min-height: auto;
+        padding: 8px 16px;
+        margin: 0;
+        text-align: left;
+        color: #fff;
+    }
+    md-list-item {
+        &.md-no-proxy {
+            padding: 0;
+            margin: 0;
+            .md-secondary-container {
+                display: none;
+            }
+        }
+    }
+}
+header {
+    min-height: 66px;
+    img {
+        display: inline-block;
+        max-width: 130px;
+        max-height: 64px;
+        margin: 16px 0 0;
+    }
+    nav {
+        position: absolute;
+        top: 12px;
+        left: 8px;
+        md-icon {
+            color: #fff;
+        }
+        .md-button {
+            display: block;
+            min-height: auto;
+        }
+    }
+    app-menu {
+        display: block;
+    }
+    .menu-area {
+        > div {
+            margin: 0 auto;
+        }
+    }
+}
+.page {
+    &.page-internal {
+        &#Body {
+            background: #fff;
+        }
+        header {
+            background-color: palette(Red, 400);
+        }
+    }
+}
+.md-sidenav-left {
+    &.nav {
+        md-list-item {
+            display: block;
+            min-height: auto;
+            &::before {
+                display: none;
+            }
+        }
+        .md-button {
+            color: palette(Black, text);
+        }
+    }
+}
+.md-headline {
+    font-size: 18px;
+}
+@media (min-width: $layout-breakpoint-sm) {
+    #Body {
+        font-size: 16px;
+    }
+    header {
+        img {
+            padding: 16px 0;
+        }
+        nav {
+            position: static;
+            top: unset;
+            left: unset;
+        }
+    }
+    .md-headline {
+        font-size: $headline-font-size-base - 6;
+    }
+}

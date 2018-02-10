@@ -1,0 +1,26 @@
+@import 'variable';
+@import 'mixin';
+@import '../../../bower_components/angular-material-sass-files/variables.scss';
+@import '../../../bower_components/google-material-color/dist/palette.scss';
+
+main {
+    max-width: 1176px;
+    margin: 0 auto;
+}
+.page {
+    &.page-internal {
+        main {
+            padding: 16px;
+        }
+    }
+}
+@media (min-width: $layout-breakpoint-xs) {
+    #Main {
+        .content {
+            text-align: center;
+            film {
+                text-align: left;
+            }
+        }
+    }
+}

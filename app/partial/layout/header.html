@@ -1,0 +1,20 @@
+<header>
+	<div layout="column" layout-align="center center" layout-gt-sm="column" layout-align-gt-sm="center start" class="menu-area">
+		<div>
+			<img alt="Logo" ng-src="app/assets/img/logo-viva-decora.png" id="Logo">
+		</div>
+		<div>
+			<nav>
+		        <md-button hide-gt-sm class="md-icon-button" ng-click="$mdSidenav('nav').toggle()">
+		            <md-icon>menu</md-icon>
+		        </md-button>
+		        <app-menu type="header"></app-menu>
+			</nav>
+		</div>
+	</div>
+</header>
+<md-sidenav class="md-sidenav-left nav" md-component-id="nav" md-whiteframe="12">
+    <nav layout="column" layout-align="center start">
+    	<app-menu type="sidenav"></app-menu>
+    </nav>
+</md-sidenav>

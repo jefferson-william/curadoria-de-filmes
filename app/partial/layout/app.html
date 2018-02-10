@@ -1,1 +1,8 @@
-<div ui-view="home"></div>
+<style>
+	#Html {
+		background-image: url("{{ filmBackgropUrl || '' }}");
+	}
+</style>
+<div ui-view="header"></div>
+<div ui-view="main"></div>
+<div ui-view="footer"></div>

@@ -1,0 +1,64 @@
+<md-card>
+	<img alt="Imagem do filme {{ data.title }}" ng-src="{{ Film.TMDB.URL_POSTER_PATH + data.poster_path }}">
+	<md-card-content layout="column" layout-align="end start">
+		<div>
+			<div layout-padding>
+				<div show-xs hide-gt-xs>
+					<h1 class="md-headline">{{ data.title | limitTo:18 }}{{ data.title.length > 18 ? '...' : '' }}</h1>
+					<favorite number="{{ data.vote_average }}"></favorite>
+				</div>
+				<div hide-xs show-sm hide-gt-sm>
+					<h1 class="md-headline">{{ data.title | limitTo:18 }}{{ data.title.length > 18 ? '...' : '' }}</h1>
+					<div layout layout-align="space-between center">
+						<favorite number="{{ data.vote_average }}"></favorite>
+						<span class="vote-count">({{ data.vote_count }} avaliações)</span>
+					</div>
+				</div>
+				<div hide-xs hide-sm show-gt-sm layout layout-align="space-between center">
+					<div>
+						<h1 class="md-headline">{{ data.title }}</h1>
+						<p class="md-subhead">
+							{{ data.release_date | date:'yyyy' }}
+							- <span class="genre" ng-repeat="genre in data.genres">{{ $first ? '' : ',' }} {{ genre.name }}</span>
+							<span class="runtime">{{ data.runtime ? ' - ' + data.runtime : '' }}</span>
+						</p>
+					</div>
+					<div>
+						<favorite number="{{ data.vote_average }}"></favorite>
+						<p class="vote-count">({{ data.vote_count }} avaliações)</p>
+					</div>
+				</div>
+				<div hide-xs layout layout-align="space-between center">
+					<p class="overview hide-xs show-sm hide-gt-sm">{{ data.overview | limitTo:18 }}...</p>
+					<p class="overview hide-xs hide-sm show-gt-sm">{{ data.overview | limitTo:100 }}...</p>
+					<a ui-sref=".film-detail" class="synopsis">Ver sinopse</a>
+				</div>
+			</div>
+		</div>
+	</md-card-content>
+</md-card>
+<md-card-actions layout layout-align="space-between center" ng-if="actions">
+	<div>
+		<md-button hide-gt-sm class="md-icon-button md-button-down" ng-click="Main.Down(data)">
+			<img class="icon like like-down" ng-src="app/assets/img/n-curti.png">
+		</md-button>
+		<md-button hide-xs hide-sm layout layout-align="center center" class="md-button-down" ng-click="Main.Down(data)">
+			<img class="icon like like-down" ng-src="app/assets/img/n-curti.png">
+			<span>Não curti!</span>
+		</md-button>
+	</div>
+	<div>
+		<md-button class="jump" ng-click="Main.Jump(data)">
+			Pular
+		</md-button>
+	</div>
+	<div>
+		<md-button hide-gt-sm class="md-icon-button md-button-up" ng-click="Main.Up(data)">
+			<img class="icon like like-up" ng-src="app/assets/img/curti.png">
+		</md-button>
+		<md-button hide-xs hide-sm layout layout-align="center center" class="md-button-up" ng-click="Main.Up(data)">
+			<img class="icon like like" ng-src="app/assets/img/curti.png">
+			<span>Curti!</span>
+		</md-button>
+	</div>
+</md-card-actions>

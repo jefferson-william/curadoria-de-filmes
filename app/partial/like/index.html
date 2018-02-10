@@ -1,0 +1,7 @@
+<main id="Like">
+	<h2>{{ pageTitle }}</h2>
+	<div class="content">
+		<film data="film" actions="false" max-size="sm" ng-if="Like.films.length" ng-repeat="film in Like.films | orderBy:'-moved'"></film>
+	</div>
+	<no-results ng-if="!Like.films.length"></no-results>
+</main>

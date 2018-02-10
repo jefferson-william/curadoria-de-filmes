@@ -27,6 +27,21 @@ define([
                         , controller: 'AppController'
                         , controllerAs: 'App'
                     }
+                    , 'header@app': {
+                          templateUrl: 'app/partial/layout/header.html'
+                        , controller: 'HeaderController'
+                        , controllerAs: 'Header'
+                    }
+                    , 'main@app': {
+                          templateUrl: 'app/partial/layout/main.html'
+                        , controller: 'MainController'
+                        , controllerAs: 'Main'
+                    }
+                    , 'footer@app': {
+                          templateUrl: 'app/partial/layout/footer.html'
+                        , controller: 'FooterController'
+                        , controllerAs: 'Footer'
+                    }
                 }
                 , resolve: {
                     dependencies: ['$q', function ($q) {
@@ -36,6 +51,11 @@ define([
 
                         require([
                               'angularAMD'
+                            , 'app.controller'
+                            , 'header.controller'
+                            , 'main.controller'
+                            , 'footer.controller'
+                            , 'menu.directive'
                         ], function (amd) {
                             amd.processQueue();
 

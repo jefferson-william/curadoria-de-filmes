@@ -7,7 +7,8 @@ requirejs([
     , 'moment'
     , 'modernizr'
     , 'app.state'
-    , 'app.controller'
+    , 'like.state'
+    , 'not-like.state'
 ], function (
       ng
     , amd
@@ -32,6 +33,7 @@ requirejs([
         , '$mdThemingProvider'
         , '$urlRouterProvider'
         , 'DEFAULT_DATE_FORMAT'
+        , '$localStorageProvider'
     ];
 
     function Config (
@@ -42,7 +44,10 @@ requirejs([
         , $mdThemingProvider
         , $urlRouterProvider
         , DEFAULT_DATE_FORMAT
+        , $localStorageProvider
     ) {
+        $localStorageProvider.setKeyPrefix('vivareal');
+
         $sceProvider
             .enabled(false);
 
@@ -105,6 +110,18 @@ requirejs([
           $rootScope
         , $templateCache
     ) {
+        $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams) {
+            var $body = angular.element(document.body);
+
+            $body.removeClass('hide');
+
+            toState.name && $body.removeClass('page-' + fromState.name.replace(/[.]/g, ' page-')).addClass('page-' + toState.name.replace(/[.]/g, ' page-'));
+
+            if (toState.data) {
+                $rootScope.pageTitle = toState.data.pageTitle;
+            }
+        });
+
         location.host === 'localhost:9001' && $rootScope.$on('$viewContentLoaded', function () {
             $templateCache.removeAll();
         });

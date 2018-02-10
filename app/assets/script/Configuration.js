@@ -25,12 +25,35 @@ requirejs.config({
         , 'app-css': 'app/assets/style/app'
         , 'app.state': 'app/state/app.state'
         , 'app.controller': 'app/controller/app.controller'
+        , 'header.controller': 'app/controller/header.controller'
+        , 'main.controller': 'app/controller/main.controller'
+        , 'main-css': 'app/assets/style/main'
+        , 'footer.controller': 'app/controller/footer.controller'
+        , 'tmdb.resource': 'app/resource/tmdb.resource'
+        , 'tmdb.constant': 'app/constant/tmdb.constant'
+        , 'menu.directive': 'app/directive/menu.directive'
+        , 'menu-css': 'app/assets/style/menu'
+        , 'film.directive': 'app/directive/film.directive'
+        , 'film-css': 'app/assets/style/film'
+        , 'favorite.directive': 'app/directive/favorite.directive'
+        , 'favorite-css': 'app/assets/style/favorite'
+        , 'film-saved.factory': 'app/factory/film-saved.factory'
+        , 'film-backdrop.factory': 'app/factory/film-backdrop.factory'
+        , 'genre-saved.factory': 'app/factory/genre-saved.factory'
+        , 'like.state': 'app/state/like.state'
+        , 'like.controller': 'app/controller/like.controller'
+        , 'no-results.directive': 'app/directive/no-results.directive'
+        , 'no-results-css': 'app/assets/style/no-results'
+        , 'not-like.state': 'app/state/not-like.state'
+        , 'not-like.controller': 'app/controller/not-like.controller'
+        , 'internal.state': 'app/state/internal.state'
     }
     , shim: {
           'modernizr': { exports: 'Modernizr' }
         , 'angular': {
             deps: [
-                'moment'
+                  'moment'
+                , 'css!normalize-css'
             ]
             , exports: 'angular'
         }
@@ -91,9 +114,8 @@ requirejs.config({
                 , 'angular-ui-router'
                 , 'ngStorage'
                 , 'angularMaterial'
-                , 'css!app-css'
             ]
-        , }
+        }
         , 'app.state': {
             deps: [
                 'app.module'
@@ -103,6 +125,80 @@ requirejs.config({
             deps: [
                   'app.module'
                 , 'app.state'
+                , 'css!app-css'
+            ]
+        }
+        , 'main.controller': {
+            deps: [
+                'tmdb.resource'
+              , 'film.directive'
+              , 'film-saved.factory'
+              , 'genre-saved.factory'
+              , 'css!main-css'
+            ]
+        }
+        , 'tmdb.resource': {
+            deps: [
+                'tmdb.constant'
+            ]
+        }
+        , 'film.directive': {
+            deps: [
+                  'tmdb.constant'
+                , 'favorite.directive'
+                , 'css!film-css'
+            ]
+        }
+        , 'favorite.directive': {
+            deps: [
+                'css!favorite-css'
+            ]
+        }
+        , 'film-saved.factory': {
+            deps: [
+                'film-backdrop.factory'
+            ]
+        }
+        , 'film-backdrop.factory': {
+            deps: [
+                'tmdb.constant'
+            ]
+        }
+        , 'like.state': {
+            deps: [
+                'internal.state'
+            ]
+        }
+        , 'like.controller': {
+            deps: [
+                  'film-saved.factory'
+                , 'no-results.directive'
+            ]
+        }
+        , 'no-results.directive': {
+            deps: [
+                'css!no-results-css'
+            ]
+        }
+        , 'internal.state': {
+            deps: [
+                'app.module'
+            ]
+        }
+        , 'no-like.state': {
+            deps: [
+                'internal.state'
+            ]
+        }
+        , 'no-like.controller': {
+            deps: [
+                  'film-saved.factory'
+                , 'no-results.directive'
+            ]
+        }
+        , 'menu.directive': {
+            deps: [
+                'css!menu-css'
             ]
         }
     }
