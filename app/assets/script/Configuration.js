@@ -33,6 +33,7 @@ requirejs.config({
         , 'tmdb.resource': 'app/resource/tmdb.resource'
         , 'tmdb.constant': 'app/constant/tmdb.constant'
         , 'menu.directive': 'app/directive/menu.directive'
+        , 'menu-css': 'app/assets/style/menu'
         , 'film.directive': 'app/directive/film.directive'
         , 'film-css': 'app/assets/style/film'
         , 'favorite.directive': 'app/directive/favorite.directive'
@@ -194,6 +195,11 @@ requirejs.config({
             deps: [
                   'film-saved.factory'
                 , 'no-results.directive'
+            ]
+        }
+        , 'menu.directive': {
+            deps: [
+                'css!menu-css'
             ]
         }
     }

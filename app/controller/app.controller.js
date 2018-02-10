@@ -17,6 +17,7 @@ define([
         var self = this;
 
         $rootScope.$mdSidenav = $mdSidenav;
+        $rootScope.$state = $state;
     }
 
     return AppController;

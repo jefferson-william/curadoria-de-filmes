@@ -21,8 +21,10 @@ define([
             , scope: {
                 type: '@'
             }
-            , controller: ['$scope', function ($scope) {
+            , controller: ['$scope', '$state', function ($scope, $state) {
                 var self = this;
+
+                $scope.$state = $state;
 
                 self.TypeIsNav = function () {
                     return !$scope.type;
