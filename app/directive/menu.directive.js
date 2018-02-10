@@ -41,7 +41,7 @@ define([
                 self.Go = function (stateName) {
                     $state.go(stateName);
 
-                    $mdSidenav('nav').toggle();
+                    $mdSidenav('nav').close();
                 };
             }]
         };
