@@ -41,3 +41,30 @@ md-icon {
         opacity: 0.5;
     }
 }
+.icon {
+    display: inline-block;
+    object-fit: cover;
+    &.like {
+        width: 34px;
+        height: 39px;
+    }
+    &.like-down {
+        width: 34px;
+        height: 36px;
+    }
+}
+.md-icon-button {
+    &.md-button-down {
+        padding-top: 14px;
+    }
+}
+.md-button-up {
+    color: palette(Red, 400);
+}
+@media (min-width: $layout-breakpoint-sm) {
+    .md-button {
+        .icon {
+            margin-right: 16px;
+        }
+    }
+}

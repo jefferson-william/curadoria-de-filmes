@@ -39,26 +39,25 @@
 </md-card>
 <md-card-actions layout layout-align="space-between center" ng-if="actions">
 	<div>
-		<md-button hide-gt-sm class="md-icon-button md-whiteframe-z3 down" ng-click="Main.Down(data)">
-			<md-icon>thumb_down</md-icon>
+		<md-button hide-gt-sm class="md-icon-button md-button-down" ng-click="Main.Down(data)">
+			<img class="icon like like-down" ng-src="app/assets/img/n-curti.png">
 		</md-button>
-		<md-button hide-xs hide-sm class="md-whiteframe-z3 down" ng-click="Main.Down(data)">
-			<md-icon>thumb_down</md-icon>
+		<md-button hide-xs hide-sm layout layout-align="center center" class="md-button-down" ng-click="Main.Down(data)">
+			<img class="icon like like-down" ng-src="app/assets/img/n-curti.png">
 			<span>Não curti!</span>
 		</md-button>
 	</div>
 	<div>
-		<md-button class="jump md-whiteframe-z3" ng-click="Main.Jump(data)">
+		<md-button class="jump" ng-click="Main.Jump(data)">
 			Pular
 		</md-button>
 	</div>
 	<div>
-		<md-button hide-gt-sm class="md-icon-button md-whiteframe-z3 up" ng-click="Main.Up(data)">
-			<md-icon>thumb_up</md-icon>
-			<span hide-xs hide-sm>Curti!</span>
+		<md-button hide-gt-sm class="md-icon-button md-button-up" ng-click="Main.Up(data)">
+			<img class="icon like like-up" ng-src="app/assets/img/curti.png">
 		</md-button>
-		<md-button hide-xs hide-sm class="md-whiteframe-z3 up" ng-click="Main.Up(data)">
-			<md-icon>thumb_up</md-icon>
+		<md-button hide-xs hide-sm layout layout-align="center center" class="md-button-up" ng-click="Main.Up(data)">
+			<img class="icon like like" ng-src="app/assets/img/curti.png">
 			<span>Curti!</span>
 		</md-button>
 	</div>
