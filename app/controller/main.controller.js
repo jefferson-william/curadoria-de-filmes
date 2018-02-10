@@ -5,6 +5,7 @@ define([
     , 'angularAMD'
     , 'app.module'
     , 'film-saved.factory'
+    , 'genre-saved.factory'
 ], function (
       ng
     , amd
@@ -12,9 +13,9 @@ define([
 ) {
     amd.controller('MainController', MainController);
 
-    MainController.$inject = ['$rootScope', '$scope', '$state', 'FilmSavedFactory'];
+    MainController.$inject = ['$rootScope', '$scope', '$q', '$state', 'FilmSavedFactory', 'GenreSavedFactory'];
 
-    function MainController ($rootScope, $scope, $state, FilmSavedFactory) {
+    function MainController ($rootScope, $scope, $q, $state, FilmSavedFactory, GenreSavedFactory) {
         var self = this;
 
         self.Down = function (film) {
@@ -36,9 +37,18 @@ define([
         };
 
         self.SetNextFilm = function () {
-            FilmSavedFactory.GetNextFilm().then(function (film) {
-                self.film = film;
-            });
+            $q
+                .all([
+                      FilmSavedFactory.GetNextFilm()
+                    , GenreSavedFactory.Get()
+                ])
+                .then(function (data) {
+                    var film = data[0];
+                    
+                    film.genres = GenreSavedFactory.ReturnGenresByFilm(data[0]);
+
+                    self.film = film;
+                });
         };
 
         self.SetNextFilm();

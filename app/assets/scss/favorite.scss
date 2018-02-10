@@ -4,20 +4,17 @@
 @import '../../../bower_components/google-material-color/dist/palette.scss';
 
 favorite {
-    position: relative;
-    .down {
-        md-icon {
-            color: #fff;
-        }
-    }
-    .up {
-        position: absolute;
-        top: 0;
-        left: 0;
-        md-icon {
+    md-icon {
+        color: #fff;
+        &.active {
             margin: -1px 0 0 -0.5px;
             font-size: 26.5px;
             color: palette(Red, 400);
         }
+    }
+}
+@media (min-width: $layout-breakpoint-sm) {
+    favorite {
+        display: block;
     }
 }

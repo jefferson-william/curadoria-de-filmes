@@ -76,11 +76,11 @@ film {
         color: #fff;
     }
     .md-headline {
-        margin-bottom: 0;
         text-transform: uppercase;
     }
     .vote-count {
         font-size: 12px;
+        text-align: right;
     }
     .overview {
         margin: 0;
@@ -113,6 +113,18 @@ film {
         }
         .md-headline {
             font-weight: bold;
+        }
+        .vote-count {
+            font-size: 14px;
+        }
+        .md-headline {
+            margin: -16px 0 8px;
+        }
+        .md-subhead {
+            margin: 0;
+        }
+        .layout-padding {
+            padding: 16px;
         }
     }
 }

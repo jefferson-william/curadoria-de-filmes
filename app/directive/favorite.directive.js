@@ -25,8 +25,12 @@ define([
                 var self = this
                     , number = Math.round(+$scope.number / 2);
 
+                self.Active = function (number) {
+                    return number <= (self.up - 1);
+                };
+
                 self.down = (new Array(5)).fill('').map(NumberReturn);
-                self.up = !number ? [] : (new Array(number)).fill('').map(NumberReturn);
+                self.up = number;
 
                 function NumberReturn (value, i) {
                     return i;
