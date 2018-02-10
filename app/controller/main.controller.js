@@ -4,6 +4,7 @@ define([
       'angular'
     , 'angularAMD'
     , 'app.module'
+    , 'film-saved.factory'
 ], function (
       ng
     , amd
@@ -11,31 +12,31 @@ define([
 ) {
     amd.controller('MainController', MainController);
 
-    MainController.$inject = ['$rootScope', '$scope', '$state', 'FilmSaved'];
+    MainController.$inject = ['$rootScope', '$scope', '$state', 'FilmSavedFactory'];
 
-    function MainController ($rootScope, $scope, $state, FilmSaved) {
+    function MainController ($rootScope, $scope, $state, FilmSavedFactory) {
         var self = this;
 
         self.Down = function (film) {
-            FilmSaved.Down(film);
+            FilmSavedFactory.Down(film);
 
             self.SetNextFilm();
         };
 
         self.Jump = function (film) {
-            FilmSaved.Jump(film);
+            FilmSavedFactory.Jump(film);
 
             self.SetNextFilm();
         };
 
         self.Up = function (film) {
-            FilmSaved.Up(film);
+            FilmSavedFactory.Up(film);
 
             self.SetNextFilm();
         };
 
         self.SetNextFilm = function () {
-            FilmSaved.GetNextFilm().then(function (film) {
+            FilmSavedFactory.GetNextFilm().then(function (film) {
                 self.film = film;
             });
         };

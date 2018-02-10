@@ -4,19 +4,22 @@ define([
       'angular'
     , 'angularAMD'
     , 'app.module'
+    , 'tmdb.resource'
+    , 'film-backdrop.factory'
 ], function (
       ng
     , amd
     , app
 ) {
-    amd.factory('FilmSaved', FilmSavedDirective);
+    amd.factory('FilmSavedFactory', FilmSavedFactory);
 
-    FilmSavedDirective.$inject = ['$q', '$localStorage', 'TmdbResource'];
+    FilmSavedFactory.$inject = ['$q', '$localStorage', 'TmdbResource', 'FilmBackdropFactory'];
 
-    function FilmSavedDirective ($q, $localStorage, TmdbResource) {
+    function FilmSavedFactory ($q, $localStorage, TmdbResource, FilmBackdropFactory) {
         var self = this
             , response = {}
             , films = []
+            , currentFilm = {}
             ;
 
         self.Get = function (force) {
@@ -49,10 +52,36 @@ define([
                     return !jumped.length || jumped[0].id !== film.id;
                 });
 
-                return defer.resolve(f[0]);
+                self.SetCurrentFilm(currentFilm = f[0]);
+
+                return defer.resolve(currentFilm);
             });
 
             return defer.promise;
+        };
+
+        self.GetCurrentFilm = function () {
+            var defer = $q.defer();
+
+            self.Get().then(function (data) {
+                if (angular.isObject(currentFilm) && currentFilm.hasOwnProperty('id')) {
+                    return defer.resolve(currentFilm);
+                }
+
+                self.GetNextFilm().then(function (film) {
+                    self.SetCurrentFilm(currentFilm = film);
+
+                    return defer.resolve(film);
+                });
+            });
+
+            return defer.promise;
+        };
+
+        self.SetCurrentFilm = function (film) {
+            currentFilm = film;
+
+            FilmBackdropFactory.Set(film);
         };
 
         self.GetDownFilms = function () {
@@ -99,5 +128,5 @@ define([
         }
     }
 
-    return FilmSavedDirective;
+    return FilmSavedFactory;
 });

@@ -38,6 +38,7 @@ requirejs.config({
         , 'favorite.directive': 'app/directive/favorite.directive'
         , 'favorite-css': 'app/assets/style/favorite'
         , 'film-saved.factory': 'app/factory/film-saved.factory'
+        , 'film-backdrop.factory': 'app/factory/film-backdrop.factory'
     }
     , shim: {
           'modernizr': { exports: 'Modernizr' }
@@ -142,6 +143,16 @@ requirejs.config({
         , 'favorite.directive': {
             deps: [
                 'css!favorite-css'
+            ]
+        }
+        , 'film-saved.factory': {
+            deps: [
+                'film-backdrop.factory'
+            ]
+        }
+        , 'film-backdrop.factory': {
+            deps: [
+                'tmdb.constant'
             ]
         }
     }

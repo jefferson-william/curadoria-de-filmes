@@ -4,6 +4,7 @@ define([
       'angular'
     , 'angularAMD'
     , 'app.module'
+    , 'tmdb.constant'
 ], function (
       ng
     , amd
