@@ -13,9 +13,9 @@ define([
 ) {
     amd.factory('FilmSavedFactory', FilmSavedFactory);
 
-    FilmSavedFactory.$inject = ['$q', '$localStorage', 'TmdbResource', 'FilmBackdropFactory'];
+    FilmSavedFactory.$inject = ['$q', '$localStorage', 'moment', 'TmdbResource', 'FilmBackdropFactory'];
 
-    function FilmSavedFactory ($q, $localStorage, TmdbResource, FilmBackdropFactory) {
+    function FilmSavedFactory ($q, $localStorage, moment, TmdbResource, FilmBackdropFactory) {
         var self = this
             , response = {}
             , films = []
@@ -111,6 +111,8 @@ define([
         };
 
         self.Down = function (film) {
+            self.TreatFilmBeforeSave(film);
+
             if (!$localStorage.downFilms.filter(function (f) { return f.id === film.id; }).length) {
                 $localStorage.downFilms.push(film);
             }
@@ -119,17 +121,25 @@ define([
         };
 
         self.Jump = function (film) {
+            self.TreatFilmBeforeSave(film);
+
             if (!$localStorage.jumpedFilms.filter(function (f) { return f.id === film.id; }).length) {
                 $localStorage.jumpedFilms.push(film);
             }
         };
 
         self.Up = function (film) {
+            self.TreatFilmBeforeSave(film);
+
             if (!$localStorage.upFilms.filter(function (f) { return f.id === film.id; }).length) {
                 $localStorage.upFilms.push(film);
             }
 
             self.Jump(film);
+        };
+
+        self.TreatFilmBeforeSave = function (film) {
+            film.moved = moment().toDate().getTime();
         };
 
         self.InitSavedFilms();
