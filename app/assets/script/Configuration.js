@@ -44,6 +44,9 @@ requirejs.config({
         , 'like.controller': 'app/controller/like.controller'
         , 'no-results.directive': 'app/directive/no-results.directive'
         , 'no-results-css': 'app/assets/style/no-results'
+        , 'not-like.state': 'app/state/not-like.state'
+        , 'not-like.controller': 'app/controller/not-like.controller'
+        , 'internal.state': 'app/state/internal.state'
     }
     , shim: {
           'modernizr': { exports: 'Modernizr' }
@@ -163,7 +166,7 @@ requirejs.config({
         }
         , 'like.state': {
             deps: [
-                'app.module'
+                'internal.state'
             ]
         }
         , 'like.controller': {
@@ -175,6 +178,22 @@ requirejs.config({
         , 'no-results.directive': {
             deps: [
                 'css!no-results-css'
+            ]
+        }
+        , 'internal.state': {
+            deps: [
+                'app.module'
+            ]
+        }
+        , 'no-like.state': {
+            deps: [
+                'internal.state'
+            ]
+        }
+        , 'no-like.controller': {
+            deps: [
+                  'film-saved.factory'
+                , 'no-results.directive'
             ]
         }
     }

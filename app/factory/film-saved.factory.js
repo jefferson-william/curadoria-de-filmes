@@ -44,13 +44,21 @@ define([
             var defer = $q.defer();
 
             self.Get().then(function (data) {
-                var f = data.results.filter(function (film) {
-                    var jumped = self.GetJumpedFilms().filter(function (fm) {
-                        return film.id === fm.id;
-                    });
+                function ReturnResultFiltered (data) {
+                    return data.results.filter(function (film) {
+                        var jumped = self.GetJumpedFilms().filter(function (fm) {
+                            return film.id === fm.id || currentFilm.id === fm.id;
+                        });
 
-                    return !jumped.length || jumped[0].id !== film.id;
-                });
+                        return !jumped.length || jumped[0].id !== film.id;
+                    });
+                };
+
+                var f = ReturnResultFiltered(data);
+
+                if (currentFilm.hasOwnProperty('id') && f.filter(function (film) { return film.id === currentFilm.id; }).length) {
+                    self.Jump(currentFilm);
+                }
 
                 self.SetCurrentFilm(currentFilm = f[0]);
 
@@ -106,6 +114,8 @@ define([
             if (!$localStorage.downFilms.filter(function (f) { return f.id === film.id; }).length) {
                 $localStorage.downFilms.push(film);
             }
+
+            self.Jump(film);
         };
 
         self.Jump = function (film) {
@@ -118,6 +128,8 @@ define([
             if (!$localStorage.upFilms.filter(function (f) { return f.id === film.id; }).length) {
                 $localStorage.upFilms.push(film);
             }
+
+            self.Jump(film);
         };
 
         self.InitSavedFilms();

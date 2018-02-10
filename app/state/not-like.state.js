@@ -19,12 +19,12 @@ define([
         , $qProvider
     ) {
         $stateProvider
-            .state('internal.like', {
-                  url: 'like'
+            .state('internal.not-like', {
+                  url: 'not-like'
                 , views: {
                     'main@app': {
                           templateUrl: 'app/partial/like/index.html'
-                        , controller: 'LikeController'
+                        , controller: 'NotLikeController'
                         , controllerAs: 'Like'
                     }
                 }
@@ -36,7 +36,7 @@ define([
 
                         require([
                               'angularAMD'
-                            , 'like.controller'
+                            , 'not-like.controller'
                         ], function (amd) {
                             amd.processQueue();
 

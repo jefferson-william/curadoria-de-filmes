@@ -8,6 +8,7 @@ requirejs([
     , 'modernizr'
     , 'app.state'
     , 'like.state'
+    , 'not-like.state'
 ], function (
       ng
     , amd
