@@ -3,10 +3,10 @@
 	<md-card-content layout="column" layout-align="end start">
 		<div>
 			<div layout-padding>
-				<span class="md-headline" hide-gt-xs>{{ data.title | limitTo:22 }}{{ data.title.length > 22 ? '...' : '' }}</span>
-				<span class="md-headline" hide-xs>{{ data.title }}</span>
+				<h1 class="md-headline" hide-gt-xs>{{ data.title | limitTo:22 }}{{ data.title.length > 22 ? '...' : '' }}</h1>
+				<h1 class="md-headline" hide-xs>{{ data.title }}</h1>
 				<div layout layout-align="space-between center">
-					<film-favorite number="data.vote_average"></film-favorite>
+					<favorite number="{{ data.vote_average }}"></favorite>
 					<span class="vote-count">({{ data.vote_count }} avaliações)</span>
 				</div>
 				<div layout layout-align="space-between center">

@@ -14,7 +14,7 @@
         url('/bower_components/material-design-icons/iconfont/MaterialIcons-Regular.woff') format('woff'),
         url('/bower_components/material-design-icons/iconfont/MaterialIcons-Regular.ttf') format('truetype');
 }
-.material-icons {
+md-icon {
     font-family: 'Material Icons';
     font-weight: normal;
     font-style: normal;
@@ -36,7 +36,7 @@
     font-feature-settings: 'liga';
 }
 .md-button,
-.material-icons {
+md-icon {
     &[disabled='disabled'] {
         opacity: 0.5;
     }

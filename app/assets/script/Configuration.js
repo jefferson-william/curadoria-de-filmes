@@ -33,6 +33,8 @@ requirejs.config({
         , 'menu.directive': 'app/directive/menu.directive'
         , 'film.directive': 'app/directive/film.directive'
         , 'film-css': 'app/assets/style/film'
+        , 'favorite.directive': 'app/directive/favorite.directive'
+        , 'favorite-css': 'app/assets/style/favorite'
     }
     , shim: {
           'modernizr': { exports: 'Modernizr' }
@@ -127,7 +129,13 @@ requirejs.config({
         , 'film.directive': {
             deps: [
                   'tmdb.constant'
+                , 'favorite.directive'
                 , 'css!film-css'
+            ]
+        }
+        , 'favorite.directive': {
+            deps: [
+                'css!favorite-css'
             ]
         }
     }

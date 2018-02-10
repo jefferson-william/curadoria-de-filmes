@@ -1,0 +1,23 @@
+@import 'variable';
+@import 'mixin';
+@import '../../../bower_components/angular-material-sass-files/variables.scss';
+@import '../../../bower_components/google-material-color/dist/palette.scss';
+
+favorite {
+    position: relative;
+    .down {
+        md-icon {
+            color: #fff;
+        }
+    }
+    .up {
+        position: absolute;
+        top: 0;
+        left: 0;
+        md-icon {
+            margin: -1px 0 0 -0.5px;
+            font-size: 26.5px;
+            color: palette(Red, 400);
+        }
+    }
+}

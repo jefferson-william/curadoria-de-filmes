@@ -39,10 +39,14 @@ film {
         color: #fff;
     }
     .md-headline {
+        margin-bottom: 0;
         text-transform: uppercase;
     }
     .vote-count {
         font-size: 12px;
+    }
+    .overview {
+        margin: 0;
     }
 }
 @media (min-width: $layout-breakpoint-xs) {
@@ -51,8 +55,11 @@ film {
             border-radius: 4px;
         }
         img {
-            width: 294px;
             height: 350px;
+        }
+        .synopsis {
+            padding-left: 16px;
+            white-space: nowrap;
         }
     }
 }
