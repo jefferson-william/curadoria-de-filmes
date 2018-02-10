@@ -21,13 +21,27 @@ define([
             , scope: {
                 type: '@'
             }
-            , controller: ['$scope', '$state', function ($scope, $state) {
+            , controller: [
+                  '$scope'
+                , '$state'
+                , '$mdSidenav'
+                , function (
+                      $scope
+                    , $state
+                    , $mdSidenav
+                ) {
                 var self = this;
 
                 $scope.$state = $state;
 
                 self.TypeIsNav = function () {
                     return !$scope.type;
+                };
+
+                self.Go = function (stateName) {
+                    $state.go(stateName);
+
+                    $mdSidenav('nav').toggle();
                 };
             }]
         };

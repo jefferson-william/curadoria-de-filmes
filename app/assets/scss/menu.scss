@@ -3,10 +3,8 @@
 @import '../../../bower_components/angular-material-sass-files/variables.scss';
 @import '../../../bower_components/google-material-color/dist/palette.scss';
 
-app-menu {
+header app-menu {
     md-list-item {
-        .md-button {
-        }
         &.active {
             padding-bottom: 16px;
             .md-button {
@@ -14,6 +12,18 @@ app-menu {
                 border-bottom: 4px solid #fff;
             }
         }
+    }
+}
+.md-sidenav-left.nav {
+    background-color: palette(Grey, 800);
+    app-menu {
+        width: 100%;
+    }
+    nav {
+        height: 100%;
+    }
+    .md-button {
+        color: #fff;
     }
 }
 @media (min-width: $layout-breakpoint-xs) {
