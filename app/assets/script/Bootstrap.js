@@ -116,6 +116,10 @@ requirejs([
             $body.removeClass('hide');
 
             toState.name && $body.removeClass('page-' + fromState.name.replace(/[.]/g, ' page-')).addClass('page-' + toState.name.replace(/[.]/g, ' page-'));
+
+            if (toState.data) {
+                $rootScope.pageTitle = toState.data.pageTitle;
+            }
         });
 
         location.host === 'localhost:9001' && $rootScope.$on('$viewContentLoaded', function () {

@@ -53,7 +53,7 @@ define([
                 function ReturnResultFiltered (data) {
                     return data.results.filter(function (film) {
                         var jumped = self.GetJumpedFilms().filter(function (fm) {
-                            return film.id === fm.id || currentFilm.id === fm.id;
+                            return film.id === fm.id || (currentFilm && currentFilm.id === fm.id);
                         });
 
                         return !jumped.length || jumped[0].id !== film.id;
@@ -62,7 +62,7 @@ define([
 
                 var f = ReturnResultFiltered(data);
 
-                if (currentFilm.hasOwnProperty('id') && f.filter(function (film) { return film.id === currentFilm.id; }).length) {
+                if (currentFilm && currentFilm.hasOwnProperty('id') && f.filter(function (film) { return film.id === currentFilm.id; }).length) {
                     self.Jump(currentFilm);
                 }
 
@@ -185,7 +185,7 @@ define([
         };
 
         self.ReturnIfForceLoadFilmsAndSetNewList = function () {
-            if ($localStorage.filmsFilter.from >= $localStorage.filmsFilter.total_results && $localStorage.filmsFilter.total_results) {
+            if (($localStorage.filmsFilter.from >= $localStorage.filmsFilter.total_results && $localStorage.filmsFilter.total_results) || ($localStorage.filmsFilter.total_pages && $localStorage.filmsFilter.page > $localStorage.filmsFilter.total_pages)) {
                 var listId = $localStorage.filmsFilter.id;
 
                 $localStorage.filmsFilter = self.ReturnDefaultFilter();

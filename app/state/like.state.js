@@ -21,6 +21,9 @@ define([
         $stateProvider
             .state('internal.like', {
                   url: 'like'
+                , data: {
+                    pageTitle: 'FILMES CURTIDOS'
+                }
                 , views: {
                     'main@app': {
                           templateUrl: 'app/partial/like/index.html'

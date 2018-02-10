@@ -21,6 +21,9 @@ define([
         $stateProvider
             .state('internal.not-like', {
                   url: 'not-like'
+                , data: {
+                    pageTitle: 'FILMES NÃO CURTIDOS'
+                }
                 , views: {
                     'main@app': {
                           templateUrl: 'app/partial/like/index.html'
