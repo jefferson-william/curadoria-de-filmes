@@ -31,6 +31,7 @@ requirejs([
         , '$mdThemingProvider'
         , '$urlRouterProvider'
         , 'DEFAULT_DATE_FORMAT'
+        , '$localStorageProvider'
     ];
 
     function Config (
@@ -41,7 +42,10 @@ requirejs([
         , $mdThemingProvider
         , $urlRouterProvider
         , DEFAULT_DATE_FORMAT
+        , $localStorageProvider
     ) {
+        $localStorageProvider.setKeyPrefix('vivareal');
+
         $sceProvider
             .enabled(false);
 

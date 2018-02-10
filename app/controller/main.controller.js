@@ -11,34 +11,36 @@ define([
 ) {
     amd.controller('MainController', MainController);
 
-    MainController.$inject = ['$rootScope', '$scope', '$state', 'TmdbResource'];
+    MainController.$inject = ['$rootScope', '$scope', '$state', 'FilmSaved'];
 
-    function MainController ($rootScope, $scope, $state, TmdbResource) {
+    function MainController ($rootScope, $scope, $state, FilmSaved) {
         var self = this;
 
-        self.Get = function () {
-            self.discoverMovie = TmdbResource.discoverMovie(null, GetSuccess, GetError);
-
-            return self.discoverMovie.$promise;
-        };
-
         self.Down = function (film) {
+            FilmSaved.Down(film);
+
+            self.SetNextFilm();
         };
 
         self.Jump = function (film) {
+            FilmSaved.Jump(film);
+
+            self.SetNextFilm();
         };
 
         self.Up = function (film) {
+            FilmSaved.Up(film);
+
+            self.SetNextFilm();
         };
 
-        self.Get();
+        self.SetNextFilm = function () {
+            FilmSaved.GetNextFilm().then(function (film) {
+                self.film = film;
+            });
+        };
 
-        function GetSuccess (response) {
-            self.films = response;
-        }
-
-        function GetError (response) {
-        }
+        self.SetNextFilm();
     }
 
     return MainController;

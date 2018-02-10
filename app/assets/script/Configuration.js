@@ -37,6 +37,7 @@ requirejs.config({
         , 'film-css': 'app/assets/style/film'
         , 'favorite.directive': 'app/directive/favorite.directive'
         , 'favorite-css': 'app/assets/style/favorite'
+        , 'film-saved.factory': 'app/factory/film-saved.factory'
     }
     , shim: {
           'modernizr': { exports: 'Modernizr' }
@@ -122,6 +123,7 @@ requirejs.config({
             deps: [
                 'tmdb.resource'
               , 'film.directive'
+              , 'film-saved.factory'
               , 'css!main-css'
             ]
         }
