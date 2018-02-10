@@ -16,6 +16,7 @@ define([
     function FilmDirective () {
         return {
               restrict: 'E'
+            , transclude: true
             , templateUrl: 'app/partial/directive/film.html'
             , controllerAs: 'Film'
             , scope: {
@@ -26,6 +27,15 @@ define([
 
                 self.TMDB = TMDB;
             }]
+            , link: function (scope, element, attrs, controllers, transclude) {
+                var self = this;
+
+                scope.Main = scope.$parent.$parent.Main;
+
+                transclude(scope, function (clone, scope) {
+                    element.append(clone);
+                });
+            }
         };
     }
 

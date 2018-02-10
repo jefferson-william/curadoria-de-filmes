@@ -22,10 +22,19 @@ define([
             return self.discoverMovie.$promise;
         };
 
+        self.Down = function (film) {
+        };
+
+        self.Jump = function (film) {
+        };
+
+        self.Up = function (film) {
+        };
+
         self.Get();
 
         function GetSuccess (response) {
-            self.data = response
+            self.films = response;
         }
 
         function GetError (response) {
