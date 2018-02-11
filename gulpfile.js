@@ -22,18 +22,7 @@ var configRequire = getRequirejsConfig({
 });
 
 gulp.task('clean', function () {
-    var notDelConfigurationFiles = _.values(configRequire.paths).map(function (path) {
-        return '!' + path + '.*';
-    });
-
-    var defaultPaths = [
-          '!app/**'
-        , 'bower_components/**'
-    ];
-
-    return del(_.concat([], defaultPaths, notDelConfigurationFiles), {
-        dot: true
-    });
+    return del(['app/**/*.css']);
 });
 
 gulp.task('watch', function () {
