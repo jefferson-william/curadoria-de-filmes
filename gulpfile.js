@@ -11,10 +11,22 @@ var gulp = require('gulp')
     , sourcemaps = require('gulp-sourcemaps')
     , merge = require('merge-stream')
     , gulpIf = require('gulp-if')
+    , getRequirejsConfig = require('gulp-requirejs-config')
     ;
 
+var configRequire = getRequirejsConfig({
+    cwd: __dirname,
+    base: '/app/assets/script/',
+    name: 'Configuration.js',
+});
+
 gulp.task('clean', function () {
-    return del(['app/assets/**/*.css'], { dot: true });
+    return del([
+          'app/**'
+        , 'bower_components/**'
+    ], {
+        dot: true
+    });
 });
 
 gulp.task('watch', function () {

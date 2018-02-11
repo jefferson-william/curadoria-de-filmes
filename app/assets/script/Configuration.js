@@ -5,6 +5,7 @@ requirejs.config({
     , waitSeconds: 0
     , paths: {
           'require': 'https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.5/require.min'
+        , 'normalize-css': 'bower_components/normalize.css/normalize'
         , 'css-builder': 'bower_components/require-css/css-builder'
         , 'normalize': 'bower_components/require-css/normalize'
         , 'modernizr': 'https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min'
@@ -18,7 +19,7 @@ requirejs.config({
         , 'angular-resource': 'https://cdnjs.cloudflare.com/ajax/libs/angular-resource/1.6.9/angular-resource.min'
         , 'angular-sanitize': 'https://cdnjs.cloudflare.com/ajax/libs/angular-sanitize/1.6.9/angular-sanitize.min'
         , 'angular-ui-router': 'https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.min'
-        , 'ngStorage': 'https://cdnjs.cloudflare.com/ajax/libs/angular-storage/0.0.15/angular-storage.min'
+        , 'ngStorage': 'https://cdnjs.cloudflare.com/ajax/libs/angular-local-storage/0.7.1/angular-local-storage.min'
         , 'angularMaterial': 'https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.7/angular-material.min'
         , 'angularMaterialCss': 'https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.1.7/angular-material.min'
         , 'app.module': 'app/module/app.module'

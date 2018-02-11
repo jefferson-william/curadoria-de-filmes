@@ -1,3 +1,8 @@
+@import 'variable';
+@import 'mixin';
+@import '../../../bower_components/angular-material-sass-files/variables.scss';
+@import '../../../bower_components/google-material-color/dist/palette.scss';
+
 @font-face {
     font-family: 'Material Icons';
     font-style: normal;
