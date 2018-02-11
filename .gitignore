@@ -1,6 +1,8 @@
 .sass-cache
 node_modules
 bower_components
+bower_components_
 !bower_components/require-css
 
+*-lock.json
 *.sublime-*

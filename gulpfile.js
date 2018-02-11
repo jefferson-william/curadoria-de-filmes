@@ -1,6 +1,7 @@
 'use strict';
 
 var gulp = require('gulp')
+    , _ = require('lodash')
     , es = require('event-stream')
     , sass = require('gulp-sass')
     , del = require('del')
@@ -11,7 +12,7 @@ var gulp = require('gulp')
     , sourcemaps = require('gulp-sourcemaps')
     , merge = require('merge-stream')
     , gulpIf = require('gulp-if')
-    , getRequirejsConfig = require('gulp-requirejs-config')
+    , getRequirejsConfig = require('get-requirejs-config')
     ;
 
 var configRequire = getRequirejsConfig({
@@ -21,10 +22,16 @@ var configRequire = getRequirejsConfig({
 });
 
 gulp.task('clean', function () {
-    return del([
-          'app/**'
+    var notDelConfigurationFiles = _.values(configRequire.paths).map(function (path) {
+        return '!' + path + '.*';
+    });
+
+    var defaultPaths = [
+          '!app/**'
         , 'bower_components/**'
-    ], {
+    ];
+
+    return del(_.concat([], defaultPaths, notDelConfigurationFiles), {
         dot: true
     });
 });
@@ -45,6 +52,8 @@ gulp.task('sass', function () {
 });
 
 gulp.task('default', sequence('clean', ['sass', 'browser-sync', 'watch']));
+
+gulp.task('serve', sequence('clean', ['sass', 'browser-sync', 'watch']));
 
 gulp.task('browser-sync', function () {
     browserSync.init({
