@@ -9,11 +9,11 @@
 			</div>
 		</div>
 	</md-toolbar>
-	<md-dialog-content>
+	<md-dialog-content ng-if="FilmDetail.data">
 		<div layout="column" layout-align="center center">
 			<h2>{{ FilmDetail.data.title }}</h2>
 			<film-detail data="FilmDetail.data"></film-detail>
-			<favorite class="dark" average="{{ FilmDetail.data.vote_average }}"></favorite>
+			<favorite class="dark" average="FilmDetail.data.vote_average"></favorite>
 			<film-rating rating="{{ FilmDetail.data.vote_count }}"></film-rating>
 		</div>
 		<p class="overview">{{ FilmDetail.data.overview }}</p>

@@ -5,12 +5,12 @@
 			<div layout-padding>
 				<div show-xs hide-gt-xs>
 					<h1 class="md-headline">{{ data.title }}</h1>
-					<favorite average="{{ data.vote_average }}"></favorite>
+					<favorite average="data.vote_average"></favorite>
 				</div>
 				<div hide-xs show-sm hide-gt-sm>
 					<h1 class="md-headline">{{ data.title }}</h1>
 					<div layout layout-align="space-between center">
-						<favorite average="{{ data.vote_average }}"></favorite>
+						<favorite average="data.vote_average"></favorite>
 						<film-rating rating="{{ data.vote_count }}"></film-rating>
 					</div>
 				</div>
@@ -20,7 +20,7 @@
 						<film-detail data="data"></film-detail>
 					</div>
 					<div>
-						<favorite average="{{ data.vote_average }}"></favorite>
+						<favorite average="data.vote_average"></favorite>
 						<film-rating rating="{{ data.vote_count }}"></film-rating>
 					</div>
 				</div>

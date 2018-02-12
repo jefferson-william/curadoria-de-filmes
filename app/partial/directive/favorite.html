@@ -1,1 +1,1 @@
-<span class="average-{{ average }}" ng-class="{ 'favorite': Favorite.Active(average) }" ng-repeat="average in Favorite.down"></span>
+<span class="average-{{ average }}" ng-class="{ 'favorite': Favorite.Active(average, $index) }" ng-repeat="average in Favorite.down"></span>

@@ -14,9 +14,9 @@ define([
 ) {
     amd.factory('FilmSavedFactory', FilmSavedFactory);
 
-    FilmSavedFactory.$inject = ['$q', '$localStorage', 'moment', 'TmdbResource', 'FilmBackdropFactory', 'TMDB'];
+    FilmSavedFactory.$inject = ['$q', '$localStorage', 'moment', '$mdToast', 'TmdbResource', 'FilmBackdropFactory', 'TMDB'];
 
-    function FilmSavedFactory ($q, $localStorage, moment, TmdbResource, FilmBackdropFactory, TMDB) {
+    function FilmSavedFactory ($q, $localStorage, moment, $mdToast, TmdbResource, FilmBackdropFactory, TMDB) {
         var self = this
             , response = {}
             , films = []
@@ -67,6 +67,16 @@ define([
 
                 if (currentFilm && currentFilm.hasOwnProperty('id') && f.filter(function (film) { return film.id === currentFilm.id; }).length) {
                     self.Jump(currentFilm);
+                }
+
+                if (!f[0]) {
+                    // Filme repetido que já tenha sido curado
+
+                    self.Jump();
+
+                    self.GetNextFilm();
+
+                    return;
                 }
 
                 self.SetCurrentFilm(currentFilm = f[0]);
@@ -130,10 +140,12 @@ define([
         };
 
         self.Jump = function (film) {
-            self.TreatFilmBeforeSave(film);
+            if (film) {
+                self.TreatFilmBeforeSave(film);
 
-            if (!$localStorage.jumpedFilms.filter(function (f) { return f.id === film.id; }).length) {
-                $localStorage.jumpedFilms.push(film);
+                if (!$localStorage.jumpedFilms.filter(function (f) { return f.id === film.id; }).length) {
+                    $localStorage.jumpedFilms.push(film);
+                }
             }
 
             $localStorage.filmsFilter.from++;
@@ -222,7 +234,7 @@ define([
         }
 
         function GetFilmError (data) {
-            $mdToast.show($mdToast.simple().textContent('Filme não encontrado.'));
+            $mdToast.show($mdToast.simple().content('Filme não encontrado.'));
         }
 
         function GetSuccess (data) {
@@ -230,6 +242,8 @@ define([
 
             response = data;
             films = data.results;
+
+            !data.results && $mdToast.show($mdToast.simple().content('Você curou todos os filmes.'));
         }
 
         function GetError (data) {
