@@ -1,3 +1,1 @@
-<md-icon class="number-{{ number }}" ng-class="{ 'active': Favorite.Active(number) }" ng-repeat="number in Favorite.down">
-	{{ Favorite.Active(number) ? 'favorite' : 'favorite_border' }}
-</md-icon>
+<img ng-src="{{ Favorite.Active(number) ? 'app/assets/img/favorite.png' : 'app/assets/img/favorite_.png' }}" class="number-{{ number }}" ng-class="{ 'active': Favorite.Active(number) }" ng-repeat="number in Favorite.down">
