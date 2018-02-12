@@ -85,7 +85,10 @@ header {
 .page {
     &.page-internal {
         &#Body {
-            background: #fff;
+            background: #f4f4f4;
+        }
+        h2 {
+            font-size: 32px;
         }
         header {
             background-color: palette(Red, 400);
