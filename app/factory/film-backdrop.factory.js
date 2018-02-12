@@ -18,11 +18,11 @@ define([
         var self = this;
 
         self.Set = function (film) {
-            $rootScope.filmBackgropUrl = $rootScope.filmBackgropUrl || '';
+            $rootScope.filmBackdropUrl = $rootScope.filmBackdropUrl || '';
 
             if (!ng.isObject(film)) return;
             
-            $rootScope.filmBackgropUrl = TMDB.URL_BACKDROP_PATH + film.backdrop_path;
+            $rootScope.filmBackdropUrl = TMDB.URL_BACKDROP_PATH + film.backdrop_path;
         };
 
         self.Set();
