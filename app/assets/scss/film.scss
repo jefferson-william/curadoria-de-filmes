@@ -78,8 +78,12 @@ film {
     .md-headline {
         text-transform: uppercase;
     }
+    .md-subhead,
+    .vote-count,
+    .overview {
+        font-size: 15px;
+    }
     .vote-count {
-        font-size: 12px;
         text-align: right;
     }
     .overview {
@@ -114,6 +118,7 @@ film {
             }
             .md-headline {
                 font-weight: bold;
+                font-size: 28px;
             }
             .vote-count {
                 font-size: 14px;
