@@ -66,11 +66,8 @@ header {
     }
     nav {
         position: absolute;
-        top: 12px;
+        top: 0;
         left: 8px;
-        md-icon {
-            color: #fff;
-        }
         .md-button {
             display: block;
             min-height: auto;
