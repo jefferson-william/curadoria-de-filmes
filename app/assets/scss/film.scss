@@ -4,9 +4,9 @@
 @import '../../../bower_components/google-material-color/dist/palette.scss';
 
 film {
-    display: block;
+    display: inline-block;
+    width: 294px;
     height: 350px;
-    padding: 8px 0 16px;
     a {
         color: palette(Red, 400);
         text-decoration: underline;
@@ -24,13 +24,11 @@ film {
     md-card-content {
         height: 100%;
         padding: 0;
-        margin-top: -350px;
         .layout-padding {
-            padding-top: 32px;
+            padding: 32px 4px 4px;
         }
         > div {
             width: 100%;
-            padding: 0;
             @include linear-gradient(rgba(#000, 0), rgba(#000, 1));
         }
     }
@@ -90,6 +88,30 @@ film {
         margin: 0;
     }
 }
+.page {
+    &.page-internal {
+        film {
+            display: block;
+            width: 145px;
+            height: 174px;
+            padding: 0;
+            margin: 2px;
+            float: left;
+            md-card {
+                margin: 0;
+            }
+            md-card-content {
+                height: 100%;
+                padding: 0;
+                margin-top: 0;
+            }
+            .md-headline {
+                font-size: 12px;
+                line-height: 1.5;
+            }
+        }
+    }
+}
 @media (min-width: $layout-breakpoint-xs) {
     film {
         display: inline-block;
@@ -100,6 +122,29 @@ film {
             padding-left: 8px;
             white-space: nowrap;
         }
+        &.max-size-sm {
+            .show-gt-sm {
+                display: none;
+            }
+            .show-sm {
+                display: block !important;
+            }
+        }
+    }
+    .page {
+        &.page-internal {
+            film {
+                display: block;
+                width: 294px;
+                height: 350px;
+                padding: 0;
+                margin: 8px;
+                float: left;
+                .md-headline {
+                    font-size: 18px;
+                }
+            }
+        }
     }
 }
 @media (min-width: $layout-breakpoint-sm) {
@@ -108,6 +153,9 @@ film {
         &:not(.max-size-sm) {
             width: 700px;
             height: 460px;
+            md-card {
+                margin: 0;
+            }
             md-card-actions {
                 padding: 16px 0 32px;
                 .md-button {
@@ -134,14 +182,6 @@ film {
             }
             .layout-padding {
                 padding: 16px;
-            }
-        }
-        &.max-size-sm {
-            .show-gt-sm {
-                display: none;
-            }
-            .show-sm {
-                display: block !important;
             }
         }
     }

@@ -4,11 +4,11 @@
 		<div>
 			<div layout-padding>
 				<div show-xs hide-gt-xs>
-					<h1 class="md-headline">{{ data.title | limitTo:18 }}{{ data.title.length > 18 ? '...' : '' }}</h1>
+					<h1 class="md-headline">{{ data.title }}</h1>
 					<favorite number="{{ data.vote_average }}"></favorite>
 				</div>
 				<div hide-xs show-sm hide-gt-sm>
-					<h1 class="md-headline">{{ data.title | limitTo:18 }}{{ data.title.length > 18 ? '...' : '' }}</h1>
+					<h1 class="md-headline">{{ data.title }}</h1>
 					<div layout layout-align="space-between center">
 						<favorite number="{{ data.vote_average }}"></favorite>
 						<span class="vote-count">({{ data.vote_count }} avaliações)</span>

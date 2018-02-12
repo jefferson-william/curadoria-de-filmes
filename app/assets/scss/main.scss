@@ -6,20 +6,29 @@
 main {
     max-width: 1176px;
     margin: 0 auto;
+    padding: 8px;
+    .content {
+        text-align: center;
+        film {
+            text-align: left;
+        }
+    }
 }
 .page {
     &.page-internal {
         main {
-            padding: 16px;
+            padding: 8px;
+        }
+        .content {
+            margin: -8px;
         }
     }
 }
 @media (min-width: $layout-breakpoint-xs) {
-    #Main {
-        .content {
-            text-align: center;
-            film {
-                text-align: left;
+    .page {
+        &.page-internal {
+            main {
+                padding: 16px;
             }
         }
     }

@@ -6,6 +6,9 @@
 @import 'icon';
 @import 'animate.scss';
 
+* {
+    box-sizing: border-box;
+}
 #Html,
 #Body {
     width: 100%;
@@ -111,6 +114,14 @@ header {
 }
 .md-headline {
     font-size: 18px;
+}
+.clearfix {
+    overflow: auto;
+    &::after {
+        content: '';
+        clear: both;
+        display: table;
+    }
 }
 @media (min-width: $layout-breakpoint-sm) {
     #Body {
