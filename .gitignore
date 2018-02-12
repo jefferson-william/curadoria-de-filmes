@@ -1,9 +1,9 @@
 .sass-cache
 node_modules
-bower_components
-bower_components_
-!bower_components/require-css
-!bower_components/ngstorage
+bower_components/angular-material-sass-files
+bower_components/animate-sass
+bower_components/google-material-color
+bower_components/material-design-icons
 
 *-lock.json
 *.sublime-*

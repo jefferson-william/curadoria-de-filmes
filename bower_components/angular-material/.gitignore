@@ -1,0 +1,6 @@
+*.sublime-*
+*.log
+*.sw*
+.DS_STORE
+/.idea/
+default-theme.css
