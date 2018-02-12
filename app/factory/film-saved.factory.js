@@ -6,6 +6,7 @@ define([
     , 'app.module'
     , 'tmdb.resource'
     , 'film-backdrop.factory'
+    , 'tmdb.constant'
 ], function (
       ng
     , amd
@@ -13,9 +14,9 @@ define([
 ) {
     amd.factory('FilmSavedFactory', FilmSavedFactory);
 
-    FilmSavedFactory.$inject = ['$q', '$localStorage', 'moment', 'TmdbResource', 'FilmBackdropFactory'];
+    FilmSavedFactory.$inject = ['$q', '$localStorage', 'moment', 'TmdbResource', 'FilmBackdropFactory', 'TMDB'];
 
-    function FilmSavedFactory ($q, $localStorage, moment, TmdbResource, FilmBackdropFactory) {
+    function FilmSavedFactory ($q, $localStorage, moment, TmdbResource, FilmBackdropFactory, TMDB) {
         var self = this
             , response = {}
             , films = []
@@ -197,11 +198,25 @@ define([
             return false;
         };
 
+        self.GetPostPath = function (data) {
+            return TMDB.URL_POSTER_PATH + data.poster_path;
+        };
+
+        self.FilmSavedFactory = FilmSavedFactory;
+
         self.SetFilter();
         self.InitSavedFilms();
         self.Get();
 
         return self;
+
+        function GetFilmSuccess (data) {
+            self.film = data;
+        }
+
+        function GetFilmError (data) {
+            $mdToast.show($mdToast.simple().textContent('Filme não encontrado.'));
+        }
 
         function GetSuccess (data) {
             self.SetFilter(data);

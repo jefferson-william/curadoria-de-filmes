@@ -48,6 +48,10 @@ requirejs.config({
         , 'not-like.state': 'app/state/not-like.state'
         , 'not-like.controller': 'app/controller/not-like.controller'
         , 'internal.state': 'app/state/internal.state'
+        , 'film-detail.controller': 'app/controller/film/detail.controller'
+        , 'film-detail-css': 'app/assets/style/film-detail'
+        , 'film-detail.directive': 'app/directive/film-detail.directive'
+        , 'film-rating.directive': 'app/directive/film-rating.directive'
     }
     , shim: {
           'modernizr': { exports: 'Modernizr' }
@@ -131,11 +135,10 @@ requirejs.config({
         }
         , 'main.controller': {
             deps: [
-                'tmdb.resource'
-              , 'film.directive'
-              , 'film-saved.factory'
-              , 'genre-saved.factory'
-              , 'css!main-css'
+                  'film.directive'
+                , 'film-saved.factory'
+                , 'genre-saved.factory'
+                , 'css!main-css'
             ]
         }
         , 'tmdb.resource': {
@@ -146,7 +149,10 @@ requirejs.config({
         , 'film.directive': {
             deps: [
                   'tmdb.constant'
+                , 'film-saved.factory'
+                , 'film-detail.directive'
                 , 'favorite.directive'
+                , 'film-rating.directive'
                 , 'css!film-css'
             ]
         }
@@ -157,7 +163,8 @@ requirejs.config({
         }
         , 'film-saved.factory': {
             deps: [
-                'film-backdrop.factory'
+                  'film-backdrop.factory'
+                , 'tmdb.constant'
             ]
         }
         , 'film-backdrop.factory': {
@@ -200,6 +207,15 @@ requirejs.config({
         , 'menu.directive': {
             deps: [
                 'css!menu-css'
+            ]
+        }
+        , 'film-detail.controller': {
+            deps: [
+                  'film-saved.factory'
+                , 'film-detail.directive'
+                , 'favorite.directive'
+                , 'film-rating.directive'
+                , 'css!film-detail-css'
             ]
         }
     }

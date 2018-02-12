@@ -4,13 +4,26 @@
 @import '../../../bower_components/google-material-color/dist/palette.scss';
 
 favorite {
-    img {
+    display: block;
+    min-width: 118px;
+    span {
         display: inline-block;
         width: 20px;
         height: 17px;
-        object-fit: cover;
-        & + img {
+        background-color: transparent;
+        background-image: url('/app/assets/img/favorite_.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        &.favorite {
+            background-image: url('/app/assets/img/favorite.png') !important;
+        }
+        & + span {
             margin-left: 4px;
+        }
+    }
+    &.dark {
+        span {
+            background-image: url('/app/assets/img/favorite-.png');
         }
     }
 }

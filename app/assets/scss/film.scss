@@ -87,6 +87,26 @@ film {
     .overview {
         margin: 0;
     }
+    &.min-size-sm {
+        .show-xs {
+            display: none !important;
+        }
+        div.overview,
+        .show-sm {
+            display: block !important;
+            p {
+                &.hide-xs.show-sm {
+                    display: inline-block !important;
+                }
+            }
+        }
+        div.overview {
+            display: block !important;
+            .synopsis {
+                float: right;
+            }
+        }
+    }
 }
 .page {
     &.page-internal {
@@ -182,6 +202,21 @@ film {
             }
             .layout-padding {
                 padding: 16px;
+            }
+        }
+        &.min-size-sm {
+            md-card-content {
+                .layout-padding {
+                    padding-bottom: 42px;
+                }
+            }
+            .hide-gt-sm,
+            div.overview p.hide-xs.show-sm {
+                display: none !important;
+            }
+            div.overview p.hide-xs.show-gt-sm {
+                width: 80%;
+                float: left;
             }
         }
     }

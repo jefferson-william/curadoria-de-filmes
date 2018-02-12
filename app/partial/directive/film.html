@@ -1,37 +1,33 @@
 <md-card>
-	<img alt="Imagem do filme {{ data.title }}" ng-src="{{ Film.TMDB.URL_POSTER_PATH + data.poster_path }}">
+	<img alt="Imagem do filme {{ data.title }}" ng-src="{{ Film.FilmSavedFactory.GetPostPath(data) }}">
 	<md-card-content layout="column" layout-align="end start">
 		<div>
 			<div layout-padding>
 				<div show-xs hide-gt-xs>
 					<h1 class="md-headline">{{ data.title }}</h1>
-					<favorite number="{{ data.vote_average }}"></favorite>
+					<favorite average="{{ data.vote_average }}"></favorite>
 				</div>
 				<div hide-xs show-sm hide-gt-sm>
 					<h1 class="md-headline">{{ data.title }}</h1>
 					<div layout layout-align="space-between center">
-						<favorite number="{{ data.vote_average }}"></favorite>
-						<span class="vote-count">({{ data.vote_count }} avaliações)</span>
+						<favorite average="{{ data.vote_average }}"></favorite>
+						<film-rating rating="{{ data.vote_count }}"></film-rating>
 					</div>
 				</div>
 				<div hide-xs hide-sm show-gt-sm layout layout-align="space-between center">
 					<div>
 						<h1 class="md-headline">{{ data.title }}</h1>
-						<p class="md-subhead">
-							{{ data.release_date | date:'yyyy' }}
-							- <span class="genre" ng-repeat="genre in data.genres">{{ $first ? '' : ',' }} {{ genre.name }}</span>
-							<span class="runtime">{{ data.runtime ? ' - ' + data.runtime : '' }}</span>
-						</p>
+						<film-detail data="data"></film-detail>
 					</div>
 					<div>
-						<favorite number="{{ data.vote_average }}"></favorite>
-						<p class="vote-count">({{ data.vote_count }} avaliações)</p>
+						<favorite average="{{ data.vote_average }}"></favorite>
+						<film-rating rating="{{ data.vote_count }}"></film-rating>
 					</div>
 				</div>
-				<div hide-xs layout layout-align="space-between center">
+				<div hide-xs layout layout-align="space-between center" class="overview">
 					<p class="overview hide-xs show-sm hide-gt-sm">{{ data.overview | limitTo:18 }}...</p>
 					<p class="overview hide-xs hide-sm show-gt-sm">{{ data.overview | limitTo:100 }}...</p>
-					<a ui-sref=".film-detail" class="synopsis">Ver sinopse</a>
+					<a ui-sref="film-detail({ id: data.id })" class="synopsis">Ver sinopse</a>
 				</div>
 			</div>
 		</div>

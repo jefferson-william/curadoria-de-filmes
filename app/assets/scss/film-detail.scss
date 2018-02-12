@@ -1,0 +1,75 @@
+@import 'variable';
+@import 'mixin';
+@import '../../../bower_components/angular-material-sass-files/variables.scss';
+@import '../../../bower_components/google-material-color/dist/palette.scss';
+
+film-detail {
+    display: block;
+    text-transform: uppercase;
+}
+md-dialog.film-detail {
+    max-width: 600px;
+    margin: 16px;
+    overflow: unset;
+    img.close {
+        position: absolute;
+        top: -22px;
+        right: -22px;
+        width: 44px;
+        height: 44px;
+    }
+    img.post-path {
+        width: 145px;
+        height: 174px;
+        border-radius: 4px;
+        margin-bottom: -112px;
+        object-fit: cover;
+    }
+    h2 {
+        margin-top: 0;
+        text-transform: uppercase;
+    }
+    md-toolbar {
+        height: 112px;
+    }
+    md-dialog-content {
+        padding: 0 16px 0;
+        margin-top: 162px;
+    }
+    film-detail,
+    film-rating {
+        color: palette(Grey, 500);
+        &,
+        p {
+            font-size: 14px;
+        }
+    }
+    h2,
+    film-detail,
+    film-rating {
+        text-align: center;
+    }
+    favorite {
+        margin: 16px;
+    }
+    .overview {
+        font-size: 16px;
+    }
+    .md-toolbar-tools {
+        height: 100%;
+        min-height: 112px;
+        max-height: unset;
+        background: palette(Red, 500);
+    }
+}
+@media (min-width: $layout-breakpoint-sm) {
+    md-dialog.film-detail {
+        md-toolbar {
+            min-height: 112px;
+        }
+        md-dialog-content {
+            padding: 0 16px;
+            margin-top: 102px;
+        }
+    }
+}

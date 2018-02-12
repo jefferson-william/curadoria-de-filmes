@@ -24,10 +24,10 @@ define([
                 , actions: '='
                 , maxSize: '@'
             }
-            , controller: ['$scope', 'TMDB', function ($scope, TMDB) {
+            , controller: ['$scope', 'FilmSavedFactory', function ($scope, FilmSavedFactory) {
                 var self = this;
 
-                self.TMDB = TMDB;
+                self.FilmSavedFactory = FilmSavedFactory;
             }]
             , link: function (scope, element, attrs, controllers, transclude) {
                 var self = this

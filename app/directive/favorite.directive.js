@@ -19,18 +19,18 @@ define([
             , templateUrl: 'app/partial/directive/favorite.html'
             , controllerAs: 'Favorite'
             , scope: {
-                number: '@'
+                  average: '@'
             }
             , controller: ['$scope', function ($scope) {
                 var self = this
-                    , number = Math.round(+$scope.number / 2);
+                    , average = Math.round(+$scope.average / 2);
 
-                self.Active = function (number) {
-                    return number <= (self.up - 1);
+                self.Active = function (average) {
+                    return average <= (self.up - 1);
                 };
 
                 self.down = (new Array(5)).fill('').map(NumberReturn);
-                self.up = number;
+                self.up = average;
 
                 function NumberReturn (value, i) {
                     return i;

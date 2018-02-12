@@ -85,6 +85,10 @@ header {
         }
     }
 }
+md-backdrop,
+.md-dialog-container {
+    position: fixed;
+}
 .page {
     &.page-internal {
         &#Body {
