@@ -186,12 +186,12 @@ requirejs.config({
                 'app.module'
             ]
         }
-        , 'no-like.state': {
+        , 'not-like.state': {
             deps: [
                 'internal.state'
             ]
         }
-        , 'no-like.controller': {
+        , 'not-like.controller': {
             deps: [
                   'film-saved.factory'
                 , 'no-results.directive'
