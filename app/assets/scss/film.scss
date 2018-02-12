@@ -24,6 +24,7 @@ film {
     md-card-content {
         height: 100%;
         padding: 0;
+        z-index: 1;
         .layout-padding {
             padding: 32px 4px 4px;
         }
