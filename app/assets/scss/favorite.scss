@@ -4,18 +4,26 @@
 @import '../../../bower_components/google-material-color/dist/palette.scss';
 
 favorite {
-    min-width: 143px;
-    md-icon {
-        color: #fff;
-        &.active {
-            margin: -1px 0 0 -0.5px;
-            font-size: 26.5px;
-            color: palette(Red, 400);
+    display: block;
+    min-width: 118px;
+    span {
+        display: inline-block;
+        width: 20px;
+        height: 17px;
+        background-color: transparent;
+        background-image: url('/app/assets/img/favorite_.png');
+        background-repeat: no-repeat;
+        background-size: cover;
+        &.favorite {
+            background-image: url('/app/assets/img/favorite.png') !important;
+        }
+        & + span {
+            margin-left: 4px;
         }
     }
-}
-@media (min-width: $layout-breakpoint-sm) {
-    favorite {
-        display: block;
+    &.dark {
+        span {
+            background-image: url('/app/assets/img/favorite-.png');
+        }
     }
 }

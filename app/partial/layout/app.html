@@ -1,6 +1,6 @@
-<style>
+<style ng-if="filmBackdropUrl">
 	#Html {
-		background-image: url("{{ filmBackgropUrl || '' }}");
+		background-image: url("{{ filmBackdropUrl || '' }}");
 	}
 </style>
 <div ui-view="header"></div>

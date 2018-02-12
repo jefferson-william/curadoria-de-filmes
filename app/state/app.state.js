@@ -69,6 +69,41 @@ define([
                     ng.element(document.body).addClass('page');
                 }]
             })
+            .state('film-detail', {
+                  url: 'film/:id'
+                , parent: 'app'
+                , resolve: {
+                    dependencies: ['$q', function ($q) {
+                        var deferred;
+
+                        deferred = $q.defer();
+
+                        require([
+                              'angularAMD'
+                            , 'film-detail.controller'
+                        ], function (amd) {
+                            amd.processQueue();
+
+                            deferred.resolve();
+                        });
+
+                        return deferred.promise;
+                    }
+                ]}
+                , onEnter: ['$mdDialog', function ($mdDialog) {
+                    $mdDialog.show({
+                          clickOutsideToClose: false
+                        , parent: angular.element(document.querySelectorAll('main'))
+                        , controller: 'FilmDetailController'
+                        , controllerAs: 'FilmDetail'
+                        , templateUrl: 'app/partial/film/detail.html'
+                        , fullscreen: false
+                    });
+                }]
+                , onExit: ['$state', '$mdDialog', function ($state, $mdDialog) {
+                    $mdDialog.hide();
+                }]
+            })
             ;
 
         $qProvider.errorOnUnhandledRejections(false);

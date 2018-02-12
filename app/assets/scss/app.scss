@@ -6,6 +6,9 @@
 @import 'icon';
 @import 'animate.scss';
 
+* {
+    box-sizing: border-box;
+}
 #Html,
 #Body {
     width: 100%;
@@ -82,13 +85,25 @@ header {
         }
     }
 }
+md-backdrop,
+.md-dialog-container {
+    position: fixed;
+}
 .page {
     &.page-internal {
         &#Body {
-            background: #fff;
+            background: #f4f4f4;
+        }
+        h2 {
+            font-size: 32px;
         }
         header {
             background-color: palette(Red, 400);
+        }
+        film {
+            .synopsis {
+                display: none;
+            }
         }
     }
 }
@@ -108,6 +123,14 @@ header {
 }
 .md-headline {
     font-size: 18px;
+}
+.clearfix {
+    overflow: auto;
+    &::after {
+        content: '';
+        clear: both;
+        display: table;
+    }
 }
 @media (min-width: $layout-breakpoint-sm) {
     #Body {

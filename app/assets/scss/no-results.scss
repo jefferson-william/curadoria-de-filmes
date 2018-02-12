@@ -18,9 +18,14 @@ no-results {
 }
 @media (min-width: $layout-breakpoint-sm) {
     no-results {
+        margin-top: 162px;
         img {
             width: auto;
             height: auto;
+        }
+        h2 {
+            margin-top: 62px;
+            font-size: 32px;
         }
     }
 }

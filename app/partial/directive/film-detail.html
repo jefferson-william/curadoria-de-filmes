@@ -1,0 +1,3 @@
+<span>{{ data.release_date | date:'yyyy' }}</span> -
+<span class="genre" ng-repeat="genre in data.genres">{{ $first ? '' : ',' }} {{ genre.name }}</span>
+<span class="runtime">{{ data.runtime ? ' - ' + data.runtime : '' }}</span>

@@ -4,9 +4,9 @@
 @import '../../../bower_components/google-material-color/dist/palette.scss';
 
 film {
-    display: block;
+    display: inline-block;
+    width: 294px;
     height: 350px;
-    padding: 8px 0 16px;
     a {
         color: palette(Red, 400);
         text-decoration: underline;
@@ -16,6 +16,7 @@ film {
         overflow: hidden;
         background-repeat: no-repeat;
         background-size: cover;
+        background: palette(Red, 400);
     }
     img {
         width: 100%;
@@ -24,13 +25,12 @@ film {
     md-card-content {
         height: 100%;
         padding: 0;
-        margin-top: -350px;
+        z-index: 1;
         .layout-padding {
-            padding-top: 32px;
+            padding: 32px 4px 4px;
         }
         > div {
             width: 100%;
-            padding: 0;
             @include linear-gradient(rgba(#000, 0), rgba(#000, 1));
         }
     }
@@ -78,12 +78,60 @@ film {
     .md-headline {
         text-transform: uppercase;
     }
+    .md-subhead,
+    .vote-count,
+    .overview {
+        font-size: 15px;
+    }
     .vote-count {
-        font-size: 12px;
         text-align: right;
     }
     .overview {
         margin: 0;
+    }
+    &.min-size-sm {
+        .show-xs {
+            display: none !important;
+        }
+        div.overview,
+        .show-sm {
+            display: block !important;
+            p {
+                &.hide-xs.show-sm {
+                    display: inline-block !important;
+                }
+            }
+        }
+        div.overview {
+            display: block !important;
+            .synopsis {
+                float: right;
+            }
+        }
+    }
+}
+.page {
+    &.page-internal {
+        film {
+            display: block;
+            width: 145px;
+            height: 174px;
+            padding: 0;
+            margin: 2px;
+            float: left;
+            md-card {
+                margin: 0;
+            }
+            md-card-content {
+                height: 100%;
+                padding: 0;
+                margin-top: 0;
+            }
+            .md-headline {
+                font-size: 12px;
+                line-height: 1.5;
+            }
+        }
     }
 }
 @media (min-width: $layout-breakpoint-xs) {
@@ -96,6 +144,29 @@ film {
             padding-left: 8px;
             white-space: nowrap;
         }
+        &.max-size-sm {
+            .show-gt-sm {
+                display: none;
+            }
+            .show-sm {
+                display: block !important;
+            }
+        }
+    }
+    .page {
+        &.page-internal {
+            film {
+                display: block;
+                width: 294px;
+                height: 350px;
+                padding: 0;
+                margin: 8px;
+                float: left;
+                .md-headline {
+                    font-size: 18px;
+                }
+            }
+        }
     }
 }
 @media (min-width: $layout-breakpoint-sm) {
@@ -104,6 +175,9 @@ film {
         &:not(.max-size-sm) {
             width: 700px;
             height: 460px;
+            md-card {
+                margin: 0;
+            }
             md-card-actions {
                 padding: 16px 0 32px;
                 .md-button {
@@ -114,6 +188,7 @@ film {
             }
             .md-headline {
                 font-weight: bold;
+                font-size: 28px;
             }
             .vote-count {
                 font-size: 14px;
@@ -131,12 +206,19 @@ film {
                 padding: 16px;
             }
         }
-        &.max-size-sm {
-            .show-gt-sm {
-                display: none;
+        &.min-size-sm {
+            md-card-content {
+                .layout-padding {
+                    padding-bottom: 42px;
+                }
             }
-            .show-sm {
-                display: block !important;
+            .hide-gt-sm,
+            div.overview p.hide-xs.show-sm {
+                display: none !important;
+            }
+            div.overview p.hide-xs.show-gt-sm {
+                width: 80%;
+                float: left;
             }
         }
     }

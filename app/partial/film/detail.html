@@ -1,0 +1,21 @@
+<md-dialog class="film-detail">
+	<md-toolbar>
+		<div class="md-toolbar-tools">
+			<img class="close" ng-src='app/assets/img/close.png' ng-click="FilmDetail.Close()">
+			<div layout="column" layout-align="center center">
+				<div>
+					<img class="post-path" ng-src="{{ FilmDetail.FilmSavedFactory.GetPostPath(FilmDetail.data) }}" ng-if="FilmDetail.data">
+				</div>
+			</div>
+		</div>
+	</md-toolbar>
+	<md-dialog-content ng-if="FilmDetail.data">
+		<div layout="column" layout-align="center center">
+			<h2>{{ FilmDetail.data.title }}</h2>
+			<film-detail data="FilmDetail.data"></film-detail>
+			<favorite class="dark" average="FilmDetail.data.vote_average"></favorite>
+			<film-rating rating="{{ FilmDetail.data.vote_count }}"></film-rating>
+		</div>
+		<p class="overview">{{ FilmDetail.data.overview }}</p>
+	</md-dialog-content>
+</md-dialog>
