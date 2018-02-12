@@ -11,11 +11,11 @@ favorite {
         width: 20px;
         height: 17px;
         background-color: transparent;
-        background-image: url('/app/assets/img/favorite_.png');
+        background-image: url('../../../app/assets/img/favorite_.png');
         background-repeat: no-repeat;
         background-size: cover;
         &.favorite {
-            background-image: url('/app/assets/img/favorite.png') !important;
+            background-image: url('../../../app/assets/img/favorite.png') !important;
         }
         & + span {
             margin-left: 4px;
@@ -23,7 +23,7 @@ favorite {
     }
     &.dark {
         span {
-            background-image: url('/app/assets/img/favorite-.png');
+            background-image: url('../../../app/assets/img/favorite-.png');
         }
     }
 }
