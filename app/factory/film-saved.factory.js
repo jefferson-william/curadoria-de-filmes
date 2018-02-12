@@ -44,13 +44,15 @@ define([
         };
 
         self.GetNextFilm = function () {
-            var defer = $q.defer();
-            var force = false;
+            var   defer = $q.defer()
+                , forceByNewPage = false
+                , forceByNewList = false
+                ;
 
-            force = self.ReturnIfForceLoadFilmsAndSetNewPage();
-            force = self.ReturnIfForceLoadFilmsAndSetNewList();
+            forceByNewPage = self.ReturnIfForceLoadFilmsAndSetNewPage();
+            forceByNewList = self.ReturnIfForceLoadFilmsAndSetNewList();
 
-            self.Get(force).then(function (data) {
+            self.Get(forceByNewPage || forceByNewList).then(function (data) {
                 function ReturnResultFiltered (data) {
                     return data.results.filter(function (film) {
                         var jumped = self.GetJumpedFilms().filter(function (fm) {
@@ -176,7 +178,9 @@ define([
         };
 
         self.ReturnIfForceLoadFilmsAndSetNewPage = function () {
-            if ($localStorage.filmsFilter.from >= ($localStorage.filmsFilter.total_per_page * $localStorage.filmsFilter.page)) {
+            var notMorePage = $localStorage.filmsFilter.from >= ($localStorage.filmsFilter.total_per_page * $localStorage.filmsFilter.page);
+
+            if (notMorePage) {
                 $localStorage.filmsFilter.page++;
 
                 return true;
@@ -186,7 +190,10 @@ define([
         };
 
         self.ReturnIfForceLoadFilmsAndSetNewList = function () {
-            if (($localStorage.filmsFilter.from >= $localStorage.filmsFilter.total_results && $localStorage.filmsFilter.total_results) || ($localStorage.filmsFilter.total_pages && $localStorage.filmsFilter.page > $localStorage.filmsFilter.total_pages)) {
+            var notMoreResults = $localStorage.filmsFilter.from >= $localStorage.filmsFilter.total_results && $localStorage.filmsFilter.total_results;
+            var notMorePages = $localStorage.filmsFilter.total_pages && $localStorage.filmsFilter.page > $localStorage.filmsFilter.total_pages;
+            
+            if (notMoreResults || notMorePages) {
                 var listId = $localStorage.filmsFilter.id;
 
                 $localStorage.filmsFilter = self.ReturnDefaultFilter();
