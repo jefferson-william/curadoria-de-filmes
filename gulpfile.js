@@ -15,10 +15,29 @@ var gulp = require('gulp')
     , getRequirejsConfig = require('get-requirejs-config')
     ;
 
+var extAll = '{html,css,js,png,jpg,gif,json,ttf,woff2}';
+
 var configRequire = getRequirejsConfig({
     cwd: __dirname,
     base: '/app/assets/script/',
     name: 'Configuration.js',
+});
+
+gulp.task('generate-service-worker', function (callback) {
+    var path = require('path');
+    var swPrecache = require('sw-precache');
+
+    swPrecache.write(path.join('app/assets/script', 'sw.js'), {
+          stripPrefix: '/'
+        , maximumFileSizeToCacheInBytes: 5242880
+        , navigateFallback: 'index.html'
+        , staticFileGlobs: [
+            , 'app/assets/script/Configuration.js'
+            , 'app/assets/script/Bootstrap.js'
+            , 'index.html'
+            , 'app/**/*.' + extAll
+        ],
+    }, callback);
 });
 
 gulp.task('clean', function () {
@@ -42,7 +61,7 @@ gulp.task('sass', function () {
 
 gulp.task('default', sequence('clean', ['sass', 'browser-sync', 'watch']));
 
-gulp.task('serve', sequence('clean', ['sass', 'browser-sync', 'watch']));
+gulp.task('serve', sequence('clean', 'sass', 'generate-service-worker', ['browser-sync', 'watch']));
 
 gulp.task('browser-sync', function () {
     browserSync.init({
